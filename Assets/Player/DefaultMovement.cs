@@ -98,27 +98,20 @@ public class DefaultMovement : MonoBehaviour
 
             //set la velocity a 0
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            switch (nbJumps)
+            if (nbJumps == baseNbJumps)
+            {
+                //premier jump
+                rb.AddForce(new Vector2(0, jumpForce));
+
+
+            } else
             {
 
-                case 1:
-                    //double jump
-                    rb.AddForce(new Vector2(0, (jumpForce/1.5f)));
-
-
-                    break;
-                case 2:
-
-                    //premier jump
-                    rb.AddForce(new Vector2(0, jumpForce));
-
-
-                    break;
-
-
-
+                //double jump
+                rb.AddForce(new Vector2(0, (jumpForce / 1.5f)));
 
             }
+
             nbJumps--;
 
         }
