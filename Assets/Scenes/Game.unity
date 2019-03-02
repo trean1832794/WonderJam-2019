@@ -344,6 +344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 240684093}
   - component: {fileID: 240684094}
+  - component: {fileID: 240684095}
   m_Layer: 9
   m_Name: MiddlePillar
   m_TagString: Untagged
@@ -413,6 +414,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &240684095
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240684092}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0007792711, y: -2.6402626}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 2.59, y: 10.48}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 2
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.5801556, y: 21.777836}
+  m_EdgeRadius: 0
 --- !u!1 &317233850
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +665,9 @@ MonoBehaviour:
     type: 3}
   rightPlatforms: {fileID: 1421943476127537551, guid: cd922b8afab4a844e8fb6d495414a333,
     type: 3}
+  growthThreshold: 1
+  eventThreshold: 30
+  minimumDistance: 0.7
 --- !u!1 &633185824
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,6 +1009,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5513934689031917034, guid: f595f9f27f9296d459b0dfe7a38575e0,
+        type: 3}
+      propertyPath: player
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5513934689031917034, guid: f595f9f27f9296d459b0dfe7a38575e0,
+        type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5513934689031917036, guid: f595f9f27f9296d459b0dfe7a38575e0,
         type: 3}
       propertyPath: m_Color.r
@@ -993,16 +1033,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.8962264
-      objectReference: {fileID: 0}
-    - target: {fileID: 5513934689031917034, guid: f595f9f27f9296d459b0dfe7a38575e0,
-        type: 3}
-      propertyPath: player
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5513934689031917034, guid: f595f9f27f9296d459b0dfe7a38575e0,
-        type: 3}
-      propertyPath: canMove
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f595f9f27f9296d459b0dfe7a38575e0, type: 3}
