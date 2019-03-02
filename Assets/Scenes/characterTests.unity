@@ -664,7 +664,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.09, y: 0.16}
+    oldSize: {x: 0.1, y: 0.15}
     newSize: {x: 0.1, y: 0.15}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -770,7 +770,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: 1
   xAxis: 0
-  yAxis: 0
   jumpAxis: 0
   xSpeed: 6
   jumpForce: 800
@@ -794,7 +793,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.09, y: 0.16}
+    oldSize: {x: 0.1, y: 0.15}
     newSize: {x: 0.1, y: 0.15}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -815,8 +814,8 @@ Animation:
   m_Animation: {fileID: 0}
   m_Animations:
   - {fileID: 7400000, guid: 6d16a5317ad8cad4c9d21fd0bfd1f75a, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7400000, guid: 10dda8994a4ee844388a998379fcd3b8, type: 2}
+  - {fileID: 7400000, guid: 0f8017751306446479c9dd72d7819f21, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   m_WrapMode: 0
