@@ -14,8 +14,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - BG
+  - Wall
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: Pillar
     uniqueID: 4201376445
+    locked: 0
+  - name: Danger
+    uniqueID: 3764301255
     locked: 0

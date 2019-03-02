@@ -81,7 +81,7 @@ public class Debuffs : MonoBehaviour
         wet = true;
         playerSprite.color = wetColor;
 
-        movementScript.xSpeed = (movementScript.xSpeed / 2);
+        movementScript.xSpeed = (normalSpeed / 2);
 
     }
 
@@ -93,7 +93,7 @@ public class Debuffs : MonoBehaviour
         stunTime = duration;
         playerSprite.color = stunColor;
 
-        movementScript.xSpeed = 0;
+        movementScript.canMove = false;
 
     }
 
@@ -103,7 +103,7 @@ public class Debuffs : MonoBehaviour
         stunned = false;
         playerSprite.color = baseColor;
 
-        movementScript.xSpeed = normalSpeed;
+        movementScript.canMove = true;
 
     }
 

@@ -75,7 +75,6 @@ public class PowerUp : MonoBehaviour
     public void Activate (GameObject playerConcerned)
     {
 
-        Debug.Log("on Activate fonctionne");
         onActivate.Invoke(playerConcerned);
 
     }
