@@ -955,12 +955,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.2, y: 18.06}
   m_EdgeRadius: 0
---- !u!1 &826746950 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3324528656674956312, guid: 1e642175aee06674f9e9ca376868f7d8,
-    type: 3}
-  m_PrefabInstance: {fileID: 2108206683}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1437256744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,7 +1287,7 @@ MonoBehaviour:
   timeBetweenEvents: 10
   timeBeforeEvent: 0
   hazardTime: 5
-  nbEvents: 2
+  nbEvents: 1
   danger1: {fileID: 1437256744}
   danger2: {fileID: 317233850}
   teleportObject: {fileID: 6080092211111641926, guid: a7a594a85eb381f43b697e0ad9db98d6,
@@ -1324,14 +1318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140cd01ff888f79418786ccbb8dd4270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  water: {fileID: 826746950}
-  baseOffset: 0
-  currentOffset: 0
-  newHeight: 0
-  risingTime: 10
-  cooldown: 0
-  riseVal: 0
-  activated: 0
 --- !u!1 &1931455933
 GameObject:
   m_ObjectHideFlags: 0
