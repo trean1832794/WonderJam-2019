@@ -5,6 +5,8 @@ using UnityEngine;
 public class DefaultMovement : MonoBehaviour
 {
 
+    public bool aControllerButtonWatch;
+
     public int player;
     public float xAxis;
     //public float yAxis;
@@ -36,9 +38,9 @@ public class DefaultMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        aControllerButtonWatch = Input.GetButtonDown("JumpController" + player);
         //jumping
-        if (Input.GetButtonDown("JumpKeyboard" + player))
+        if (Input.GetButtonDown("JumpKeyboard" + player) || Input.GetButtonDown("JumpController" + player))
         {
 
             Jump();
