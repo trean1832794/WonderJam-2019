@@ -9,6 +9,7 @@ public class MenuValueHolder : MonoBehaviour
     public int difficulty;
     public Toggle togg;
     public Button easy, med, hard;
+    public float startHeight;
     // Start is called before the first frame update
     void Start()
     {
