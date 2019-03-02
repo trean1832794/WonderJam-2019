@@ -22,7 +22,7 @@ PrefabInstance:
     - target: {fileID: 1785692900895709628, guid: 4e939db8e100f7544ab7d1f9ccd63c66,
         type: 3}
       propertyPath: m_Name
-      value: pwupjumpup
+      value: pwupjumpup Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1785692900895709629, guid: 4e939db8e100f7544ab7d1f9ccd63c66,
         type: 3}
@@ -79,11 +79,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1785692899986135227, guid: 4e939db8e100f7544ab7d1f9ccd63c66,
-        type: 3}
-      propertyPath: m_Name
-      value: Jump up
-      objectReference: {fileID: 0}
     - target: {fileID: 1785692899986135220, guid: 4e939db8e100f7544ab7d1f9ccd63c66,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -94,12 +89,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1785692899986135218, guid: 4e939db8e100f7544ab7d1f9ccd63c66,
+    - target: {fileID: 1785692899986135227, guid: 4e939db8e100f7544ab7d1f9ccd63c66,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: dca78752210f61f42954ecae3af4c9e3,
-        type: 3}
+      propertyPath: m_Name
+      value: Jump up
+      objectReference: {fileID: 0}
     - target: {fileID: 1785692899986135216, guid: 4e939db8e100f7544ab7d1f9ccd63c66,
         type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -110,6 +104,17 @@ PrefabInstance:
       propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 411447316}
+    - target: {fileID: 1785692899986135217, guid: 4e939db8e100f7544ab7d1f9ccd63c66,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785692899986135218, guid: 4e939db8e100f7544ab7d1f9ccd63c66,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dca78752210f61f42954ecae3af4c9e3,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e939db8e100f7544ab7d1f9ccd63c66, type: 3}
 --- !u!1 &3266544072723301115 stripped
