@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
-    public int wichOne;
     public float convertionPlatformToWorld;
     public float cameraSpeed;
     public float cameraSpeedGrowth;
@@ -13,11 +12,18 @@ public class Camera : MonoBehaviour
     public GameObject rightPlatforms;
     private int lastPlatformSidedLeft = 0;
     private int lastPlatformSidedRight = 0;
-    
-    
+    public float minDistancePlatforms;
+    public int numberOfSeriesSpawned;
+    public int growthThreshold;
+    public int eventThreshold;
+
+
+
     void Start()
     {
         cameraSpeed = cameraSpeed / 1000f;
+        cameraSpeedGrowth = cameraSpeedGrowth / 1000f;
+       
     }
 
 
@@ -27,8 +33,22 @@ public class Camera : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y + cameraSpeed, transform.position.z);
         if(transform.position.y + 3.5f >= lastHeigthSpawned)
         {
+           
+            if (numberOfSeriesSpawned % growthThreshold == 0)
+            {
+                cameraSpeed += cameraSpeedGrowth;
+                growthThreshold = growthThreshold*2;
+            }
+
+            if (numberOfSeriesSpawned % eventThreshold == 0 && numberOfSeriesSpawned > 0)
+            {
+
+            }
             SpawnPlatforms();
+            numberOfSeriesSpawned++;
         }
+
+      
 
     }
     void Update()
@@ -39,49 +59,61 @@ public class Camera : MonoBehaviour
     void SpawnPlatforms()
     {
 
+
+
+
+
+
         //left
       
 
         int numberOfPlatforms = Random.Range(1, 4);
+        if (numberOfPlatforms == 3) {
+          numberOfPlatforms = Random.Range(1, 4);
+        }
         float positionLastPLatformSpawned = 0;
             ;
         for (int i = 0; i < numberOfPlatforms; i++)
         {
             
-            float width = Random.Range(0.9f / convertionPlatformToWorld, ((6.68888f/numberOfPlatforms) - 1.2f)/convertionPlatformToWorld); 
+            float width = Random.Range(0.9f / convertionPlatformToWorld, ((6.68888f/numberOfPlatforms) - (2*minDistancePlatforms))/convertionPlatformToWorld); 
             float distanceSpawns = (-6.6888f / (numberOfPlatforms)) * (numberOfPlatforms - i) - 1.1f;
            
 
-            float xPos = Random.Range(distanceSpawns,(distanceSpawns + (width*convertionPlatformToWorld + 0.6f)));
-            if (xPos < -7.18888f) {
+            float xPos = Random.Range(distanceSpawns,(distanceSpawns + (width*convertionPlatformToWorld +minDistancePlatforms)));
+            if (xPos < -(7.78888f-minDistancePlatforms)) {
                 xPos = -7.78888f;
 
-                if (i + 1 == numberOfPlatforms)
-                {
-                    lastPlatformSidedLeft = 2;
-                }
+             
                 if(lastPlatformSidedLeft > 0)
                 {
-                    xPos = -7.1f;
+                    xPos = -(7.7f - minDistancePlatforms);
                 }
-            }
-
-            if (xPos + width * convertionPlatformToWorld > -1.7f)
-            {
-                xPos = -1.1f - width * convertionPlatformToWorld;
                 if (i + 1 == numberOfPlatforms)
                 {
                     lastPlatformSidedLeft = 2;
                 }
+            }
+
+            if (xPos + width * convertionPlatformToWorld > -(1.1f+minDistancePlatforms))
+            {
+            
+                xPos = -1.1f - (width * convertionPlatformToWorld);
+               
                 if (lastPlatformSidedLeft > 0)
                 {
-                    xPos = -1.7f - width * convertionPlatformToWorld;
+                    
+                    xPos = -(1.1f + minDistancePlatforms) - width * convertionPlatformToWorld;
+                }
+                if (i + 1 == numberOfPlatforms)
+                {
+                    lastPlatformSidedLeft = 2;
                 }
             }
 
-            if (i > 0 && xPos - positionLastPLatformSpawned < 0.6f)
+            if (i > 0 && xPos - positionLastPLatformSpawned < minDistancePlatforms)
             {
-                xPos = positionLastPLatformSpawned + 0.6f;
+                xPos = positionLastPLatformSpawned + minDistancePlatforms;
                
             }
 
@@ -101,46 +133,53 @@ public class Camera : MonoBehaviour
 
         //right
          numberOfPlatforms = Random.Range(1, 4);
+        if(numberOfPlatforms == 3)
+        {
+            numberOfPlatforms = Random.Range(1, 4);
+        }
          positionLastPLatformSpawned = 0;
         for (int i = 0; i < numberOfPlatforms; i++)
         {
 
-            float width = Random.Range(0.9f / convertionPlatformToWorld, ((6.68888f / numberOfPlatforms) - 1.2f) / convertionPlatformToWorld);
+            float width = Random.Range(0.9f / convertionPlatformToWorld, ((6.68888f / numberOfPlatforms) - (2*minDistancePlatforms)) / convertionPlatformToWorld);
             float distanceSpawns = (6.6888f / (numberOfPlatforms)) * (numberOfPlatforms - i) + 1.1f;
            
 
             
-            float xPos = Random.Range(distanceSpawns, (distanceSpawns - (width * convertionPlatformToWorld - 0.6f)));
-            if (xPos > 7.18888f)
+            float xPos = Random.Range(distanceSpawns, (distanceSpawns - (width * convertionPlatformToWorld - minDistancePlatforms)));
+            if (xPos > 7.78888-minDistancePlatforms)
             {
                 xPos = 7.78888f;
+              
+                if (lastPlatformSidedRight > 0)
+                {
+                    xPos = 7.7f - minDistancePlatforms;
+                }
                 if (i + 1 == numberOfPlatforms)
                 {
-                    lastPlatformSidedLeft = 2;
-                }
-                if (lastPlatformSidedLeft > 0)
-                {
-                    xPos = 7.1f;
+                    lastPlatformSidedRight = 2;
                 }
             }
 
-            if (xPos - width * convertionPlatformToWorld < 1.7f)
+            if (xPos - width * convertionPlatformToWorld < 1.1f+minDistancePlatforms)
             {
                 xPos = 1.1f + width * convertionPlatformToWorld;
-                if (i + 1 == numberOfPlatforms)
-                {
-                    lastPlatformSidedLeft = 2;
-                }
-                if (lastPlatformSidedLeft > 0)
+
+                if (lastPlatformSidedRight > 0)
                 {
                     xPos = 1.1f + width * convertionPlatformToWorld;
                 }
+                if (i + 1 == numberOfPlatforms)
+                {
+                    lastPlatformSidedRight = 2;
+                }
+                
             }
 
-            if (i > 0 &&  positionLastPLatformSpawned - xPos < 0.6f)
+            if (i > 0 &&  positionLastPLatformSpawned - xPos < minDistancePlatforms)
             {
                
-                xPos = positionLastPLatformSpawned - 0.6f;
+                xPos = positionLastPLatformSpawned - minDistancePlatforms;
             }
 
 
@@ -153,7 +192,7 @@ public class Camera : MonoBehaviour
 
 
         }
-       
+        lastPlatformSidedRight--;
 
 
         lastHeigthSpawned += 3.0f;
