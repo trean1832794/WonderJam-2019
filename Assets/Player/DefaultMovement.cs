@@ -15,6 +15,7 @@ public class DefaultMovement : MonoBehaviour
     public int baseNbJumps;
     private int nbJumps;
     Animator animator;
+    public bool canMove = true;
 
     private bool grounded;
 
@@ -36,36 +37,43 @@ public class DefaultMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //jumping
-        if (Input.GetButtonDown("JumpKeyboard" + player) || Input.GetButtonDown("JumpController" + player))
+
+        //movement
+        if (canMove)
         {
+            //jumping
+            if (Input.GetButtonDown("JumpKeyboard" + player) || Input.GetButtonDown("JumpController" + player))
+            {
 
-            Jump();
+                Jump();
 
-        }
+            }
 
-        //set grounded for animator
-        animator.SetBool("Grounded", grounded);
+            //set grounded for animator
+            animator.SetBool("Grounded", grounded);
 
-        //special ability
-        if (Input.GetButtonDown("Special" + player))
-        {
+            //special ability
+            if (Input.GetButtonDown("Special" + player))
+            {
 
-            SpecialAbility();
+                SpecialAbility();
 
-        }
+            }
 
-        //flip sprite when looking left
-        if (xAxis < 0)
-        {
+            //flip sprite when looking left
+            if (xAxis < 0)
+            {
 
-            GetComponent<SpriteRenderer>().flipX = true;
+                GetComponent<SpriteRenderer>().flipX = true;
 
-        } else if (xAxis > 0)
-        {
+            }
+            else if (xAxis > 0)
+            {
 
-            GetComponent<SpriteRenderer>().flipX = false;
+                GetComponent<SpriteRenderer>().flipX = false;
 
+
+            }
 
         }
 
@@ -73,21 +81,26 @@ public class DefaultMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (canMove)
+        {
 
-        //get the axis for the controller
-        xAxis = Input.GetAxisRaw("HorizontalKeyboard" + player);
-        //yAxis = Input.GetAxisRaw("Vertical" + player);
+            //get the axis for the controller
+            xAxis = Input.GetAxisRaw("HorizontalKeyboard" + player);
+            //yAxis = Input.GetAxisRaw("Vertical" + player);
 
-        if (xAxis == 0) {
-            xAxis = Input.GetAxisRaw("HorizontalController" + player);
+            if (xAxis == 0)
+            {
+                xAxis = Input.GetAxisRaw("HorizontalController" + player);
+            }
+
+            //set variables for animation
+            animator.SetFloat("xAxis", xAxis);
+
+            //set velocity for horizontal movemen
+
+            rb.velocity = new Vector3(xAxis * xSpeed, rb.velocity.y);
+
         }
-
-        //set variables for animation
-        animator.SetFloat("xAxis", xAxis);
-
-        //set velocity for horizontal movement
-        rb.velocity = new Vector3(xAxis * xSpeed, rb.velocity.y);
-
 
     }
 
@@ -108,7 +121,7 @@ public class DefaultMovement : MonoBehaviour
             {
 
                 //double jump
-                rb.AddForce(new Vector2(0, (jumpForce / 1.5f)));
+                rb.AddForce(new Vector2(0, (jumpForce / 1.25f)));
 
             }
 
