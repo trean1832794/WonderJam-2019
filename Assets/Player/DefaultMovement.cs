@@ -38,7 +38,7 @@ public class DefaultMovement : MonoBehaviour
     {
 
         //jumping
-        if (Input.GetButtonDown("Jump" + player))
+        if (Input.GetButtonDown("JumpKeyboard" + player))
         {
 
             Jump();
