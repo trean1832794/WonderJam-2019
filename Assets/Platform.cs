@@ -5,6 +5,8 @@ using UnityEngine;
 public class Platform : MonoBehaviour
 {
     // Start is called before the first frame update
+    private bool headEnter = false;
+    private GameObject player;
     void Start()
     {
         
@@ -17,5 +19,22 @@ public class Platform : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if(headEnter == true)
+        {
+            if(player.transform.position.y - transform.position.y > 0.249263f)
+            {
+                GetComponent<BoxCollider2D>().isTrigger = false;
+                headEnter = false;
+            }
+        }
     }
+
+
+    public void HeadCollision(GameObject player) {
+        headEnter = true;
+        this.player = player;
+        GetComponent<BoxCollider2D>().isTrigger = true;
+    }
+    
 }
