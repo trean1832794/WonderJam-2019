@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class jumpUp : MonoBehaviour {
+public class WaterWalk : MonoBehaviour
+{
 
     public void Activate(GameObject playerConcerned) {
 
-        playerConcerned.GetComponent<DefaultMovement>().baseNbJumps++;
+        //TODO: make player walk on water
 
     }
 
     public void Deactivate(GameObject playerConcerned) {
 
-        playerConcerned.GetComponent<DefaultMovement>().baseNbJumps--;
+        //TODO: stop playing from walking on water
 
     }
 }
