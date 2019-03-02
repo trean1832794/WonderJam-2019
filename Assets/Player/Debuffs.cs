@@ -81,7 +81,7 @@ public class Debuffs : MonoBehaviour
         wet = true;
         playerSprite.color = wetColor;
 
-        movementScript.xSpeed = (movementScript.xSpeed / 2);
+        movementScript.xSpeed = (normalSpeed / 2);
 
     }
 
