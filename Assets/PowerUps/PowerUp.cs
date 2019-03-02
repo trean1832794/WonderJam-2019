@@ -50,7 +50,7 @@ public class PowerUp : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.tag.Equals("Player"))
+        if (collision.tag.Equals("Player") && !activated)
         {
             player = collision.gameObject;
             Activate(player);
