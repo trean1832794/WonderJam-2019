@@ -114,10 +114,13 @@ public class Camera : MonoBehaviour
          
                 GameObject platformLeft = Instantiate(leftPlatforms, transform.position, Quaternion.identity);
                 platformLeft.transform.position = new Vector3(xPos, lastHeigthSpawned + 4.25f, transform.position.z);
-                platformLeft.transform.localScale = new Vector3(width, 0.1725f, transform.localScale.z);
+                platformLeft.GetComponent<SpriteRenderer>().size = new Vector2(width, 0.49322f);
                 positionLastPLatformSpawned = xPos + width * convertionPlatformToWorld;
-       
-            
+                BoxCollider2D bC = platformLeft.GetComponent<BoxCollider2D>();
+                bC.size = platformLeft.GetComponent<SpriteRenderer>().size;
+                bC.offset = new Vector2(bC.size.x / 2f, bC.size.y / 2f);
+
+
         }
         lastPlatformSidedLeft--;
 
@@ -178,10 +181,11 @@ public class Camera : MonoBehaviour
 
             GameObject platform = Instantiate(rightPlatforms, transform.position, Quaternion.identity);
             platform.transform.position = new Vector3(xPos, lastHeigthSpawned + 4.25f, transform.position.z);
-            platform.transform.localScale = new Vector3(width, 0.1725f, transform.localScale.z);
+            platform.GetComponent<SpriteRenderer>().size = new Vector2(width, 0.49322f);
             positionLastPLatformSpawned = xPos - width * convertionPlatformToWorld;
-
-
+            BoxCollider2D bC = platform.GetComponent<BoxCollider2D>();
+            bC.size = platform.GetComponent<SpriteRenderer>().size;
+            bC.offset = new Vector2(-bC.size.x / 2f, bC.size.y / 2f);
         }
         lastPlatformSidedRight--;
         lastHeigthSpawned += 3.0f;
