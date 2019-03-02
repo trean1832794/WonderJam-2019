@@ -16,17 +16,17 @@ public class testPowerup : MonoBehaviour
         
     }
 
-    public void Activate ()
+    public void Activate (GameObject playerConcerned)
     {
 
-        Debug.Log("Activé!");
+        Debug.Log("Activé! par " + playerConcerned.name);
 
     } 
 
-    public void Deactivate ()
+    public void Deactivate (GameObject playerConcerned)
     {
 
-        Debug.Log("Désactivé!");
+        Debug.Log("Désactivé! par " + playerConcerned.name);
 
     }
 }

@@ -6,17 +6,17 @@ public class DefaultMovement : MonoBehaviour
 {
 
     public int player;
-    public float xAxis;
+    private float xAxis;
     //public float yAxis;
-    public float jumpAxis;
+    private float jumpAxis;
     Rigidbody2D rb;
     public float xSpeed;
     public float jumpForce;
     public int baseNbJumps;
-    public int nbJumps;
+    private int nbJumps;
     Animator animator;
 
-    public bool grounded;
+    private bool grounded;
 
 
     private void Awake()
