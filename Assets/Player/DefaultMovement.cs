@@ -7,7 +7,7 @@ public class DefaultMovement : MonoBehaviour
 
     public int player;
     public float xAxis;
-    public float yAxis;
+    //public float yAxis;
     public float jumpAxis;
     Rigidbody2D rb;
     public float xSpeed;
@@ -69,10 +69,13 @@ public class DefaultMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         //get the axis for the controller
-        xAxis = Input.GetAxisRaw("Horizontal" + player);
-        yAxis = Input.GetAxisRaw("Vertical" + player);
+        xAxis = Input.GetAxisRaw("HorizontalKeyboard" + player);
+        //yAxis = Input.GetAxisRaw("Vertical" + player);
+
+        if (xAxis == 0) {
+            xAxis = Input.GetAxisRaw("HorizontalController" + player);
+        }
 
         //set velocity for horizontal movement
         rb.velocity = new Vector3(xAxis * xSpeed, rb.velocity.y);
