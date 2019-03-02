@@ -668,14 +668,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61930958e4dc8fb4dbd3b73b7371c27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 20
-  remainingTime: 0
+  duration: 3
   onActivate:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 881780341}
         m_MethodName: Activate
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -684,14 +683,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: onActivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   onDeactivate:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 881780341}
         m_MethodName: Deactivate
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -700,9 +698,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  activated: 0
+    m_TypeName: onDeactivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!58 &881780343
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -926,13 +922,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 1
-  xAxis: 0
-  jumpAxis: 0
   xSpeed: 6
   jumpForce: 800
   baseNbJumps: 2
-  nbJumps: 0
-  grounded: 0
 --- !u!61 &1170908742
 BoxCollider2D:
   m_ObjectHideFlags: 0

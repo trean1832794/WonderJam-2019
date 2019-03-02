@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
+public class onActivate : UnityEvent<GameObject> { }
+[System.Serializable]
+public class onDeactivate : UnityEvent<GameObject> { }
+
 public class PowerUp : MonoBehaviour
 {
 
     public float duration;
-    public float remainingTime;
-    public UnityEvent onActivate;
-    public UnityEvent onDeactivate;
-    public bool activated;
+    private float remainingTime;
+    public onActivate onActivate;
+    public onDeactivate onDeactivate;
+    private bool activated;
+    private GameObject player;
 
     private void Awake()
     {
@@ -36,7 +42,7 @@ public class PowerUp : MonoBehaviour
             if (remainingTime <= 0) {
 
                 //deactivate powerup
-                Deactivate();
+                Deactivate(player);
 
             } else {
 
@@ -53,8 +59,8 @@ public class PowerUp : MonoBehaviour
         
         if (collision.tag.Equals("Player"))
         {
-
-            Activate();
+            player = collision.gameObject;
+            Activate(player);
             activated = true;
             remainingTime = duration;
 
@@ -66,18 +72,18 @@ public class PowerUp : MonoBehaviour
 
     }
 
-    public void Activate ()
+    public void Activate (GameObject playerConcerned)
     {
 
         Debug.Log("on Activate fonctionne");
-        onActivate.Invoke();
+        onActivate.Invoke(playerConcerned);
 
     }
 
-    public void Deactivate ()
+    public void Deactivate (GameObject playerConcerned)
     {
 
-        onDeactivate.Invoke();
+        onDeactivate.Invoke(playerConcerned);
         Destroy(gameObject);
 
     }
