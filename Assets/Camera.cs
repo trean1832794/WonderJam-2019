@@ -18,13 +18,18 @@ public class Camera : MonoBehaviour
     private int seriesSpawnedSinceLastSpeedGrowth;
     private int seriesSpawnedSinceLastEvent;
     public float minimumDistance;
-    
-    
+    private int changeOfPowerUpLeft;
+    private int changeOfPowerUpRight;
+    private GameObject[] powerUps;
+
     void Start()
     {
         cameraSpeed = cameraSpeed / 1000f;
         cameraSpeedGrowth = cameraSpeedGrowth / 1000f;
-        
+        changeOfPowerUpLeft = -5;
+        changeOfPowerUpRight = -5;
+        powerUps = Resources.LoadAll<GameObject>("PowerUps");
+        Debug.Log(powerUps.Length);
     }
 
 
@@ -119,6 +124,18 @@ public class Camera : MonoBehaviour
                 BoxCollider2D bC = platformLeft.GetComponent<BoxCollider2D>();
                 bC.size = platformLeft.GetComponent<SpriteRenderer>().size;
                 bC.offset = new Vector2(bC.size.x / 2f, bC.size.y / 2f);
+                if(Random.Range(0,100) < changeOfPowerUpLeft)
+                {
+
+                GameObject powerToSpawn = powerUps[Random.Range(0, powerUps.Length)];
+                GameObject powerUp = Instantiate(powerToSpawn, transform.position, Quaternion.identity);
+                powerUp.transform.position = new Vector3(platformLeft.transform.position.x + (bC.size.x / 2f), platformLeft.transform.position.y + 1.9593f, transform.position.z);
+                changeOfPowerUpLeft = -5;
+                }
+                else
+                {
+                changeOfPowerUpLeft++;
+                }
 
 
         }
@@ -186,6 +203,18 @@ public class Camera : MonoBehaviour
             BoxCollider2D bC = platform.GetComponent<BoxCollider2D>();
             bC.size = platform.GetComponent<SpriteRenderer>().size;
             bC.offset = new Vector2(-bC.size.x / 2f, bC.size.y / 2f);
+
+            if (Random.Range(0, 100) < changeOfPowerUpLeft)
+            {
+                GameObject powerToSpawn = powerUps[Random.Range(0, powerUps.Length)];
+                GameObject powerUp = Instantiate(powerToSpawn, transform.position, Quaternion.identity);
+                powerUp.transform.position = new Vector3(platform.transform.position.x - (bC.size.x / 2f), platform.transform.position.y + 1.9593f, transform.position.z);
+                changeOfPowerUpRight = -5;
+            }
+            else
+            {
+                changeOfPowerUpRight++;
+            }
         }
         lastPlatformSidedRight--;
         lastHeigthSpawned += 3.0f;
