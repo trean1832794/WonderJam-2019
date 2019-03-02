@@ -1004,10 +1004,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunned: 0
-  stunColor: {r: 1, g: 0, b: 0, a: 0}
+  stunColor: {r: 1, g: 0, b: 0, a: 1}
   stunTime: 0
   wet: 0
-  wetColor: {r: 0, g: 0.5114999, b: 1, a: 0}
+  wetColor: {r: 0, g: 0.5114999, b: 1, a: 1}
   wetTime: 0
 --- !u!1 &1334389365
 GameObject:

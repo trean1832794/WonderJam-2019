@@ -19,7 +19,7 @@ public class testPowerup : MonoBehaviour
     public void Activate (GameObject playerConcerned)
     {
 
-        playerConcerned.GetComponent<Debuffs>().ApplyWet(10);
+        playerConcerned.GetComponent<Debuffs>().ApplyStun(5);
 
     } 
 
