@@ -21,7 +21,7 @@ public class jumpUp : MonoBehaviour {
 
     public void Deactivate(GameObject playerConcerned) {
 
-        playerConcerned.GetComponent<DefaultMovement>().baseNbJumps++;
+        playerConcerned.GetComponent<DefaultMovement>().baseNbJumps--;
 
     }
 }
