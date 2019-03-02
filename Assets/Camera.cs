@@ -24,6 +24,7 @@ public class Camera : MonoBehaviour
     {
         cameraSpeed = cameraSpeed / 1000f;
         cameraSpeedGrowth = cameraSpeedGrowth / 1000f;
+        
     }
 
 
@@ -197,5 +198,11 @@ public class Camera : MonoBehaviour
     public void EndGame()
     {
 
+    }
+
+    public void ReverseCamera()
+    {
+        transform.rotation = new Quaternion(0, 0, -180,Quaternion.identity.w);
+        
     }
 }
