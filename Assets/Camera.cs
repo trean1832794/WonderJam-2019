@@ -25,7 +25,7 @@ public class Camera : MonoBehaviour
     {
         
         transform.position = new Vector3(transform.position.x, transform.position.y + cameraSpeed, transform.position.z);
-        if(transform.position.y + 5f >= lastHeigthSpawned)
+        if(transform.position.y + 3.5f >= lastHeigthSpawned)
         {
             SpawnPlatforms();
         }
@@ -156,7 +156,7 @@ public class Camera : MonoBehaviour
        
 
 
-        lastHeigthSpawned += 4.25f;
+        lastHeigthSpawned += 3.0f;
 
 
     }
