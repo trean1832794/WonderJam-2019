@@ -6,6 +6,8 @@ public class Debuffs : MonoBehaviour
 {
 
     private DefaultMovement movementScript;
+    private SpriteRenderer playerSprite;
+    private Color baseColor;
     private float normalSpeed;
     public bool stunned;
     public Color stunColor;
@@ -18,6 +20,8 @@ public class Debuffs : MonoBehaviour
     {
 
         movementScript = GetComponent<DefaultMovement>();
+        playerSprite = GetComponent<SpriteRenderer>();
+        baseColor = playerSprite.color;
         normalSpeed = movementScript.xSpeed;
     }
 
@@ -30,30 +34,41 @@ public class Debuffs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (stunTime <= 0.0f)
+        if (stunned)
         {
 
-            endStun();
+            if (stunTime <= 0.0f)
+            {
 
-        } else
-        {
+                endStun();
 
-            stunTime -= Time.deltaTime;
+            }
+            else
+            {
+
+                stunTime -= Time.deltaTime;
+
+            }
 
         }
 
-        if (wetTime <= 0.0f)
+        if (wet)
         {
+            if (wetTime <= 0.0f)
+            {
 
-            endWet();
+                endWet();
 
-        } else
-        {
+            }
+            else
+            {
 
-            wetTime -= Time.deltaTime;
+                wetTime -= Time.deltaTime;
+
+            }
 
         }
+
 
     }
 
@@ -64,6 +79,8 @@ public class Debuffs : MonoBehaviour
         Debug.Log("Apply Wet");
         wetTime = duration;
         wet = true;
+        playerSprite.color = wetColor;
+
         movementScript.xSpeed = (movementScript.xSpeed / 2);
 
     }
@@ -74,7 +91,9 @@ public class Debuffs : MonoBehaviour
         //set speed to 0
         stunned = true;
         stunTime = duration;
-        movementScript.xSpeed = 0;
+        playerSprite.color = stunColor;
+
+        movementScript.canMove = false;
 
     }
 
@@ -82,13 +101,19 @@ public class Debuffs : MonoBehaviour
     {
 
         stunned = false;
-        movementScript.xSpeed = normalSpeed;
+        playerSprite.color = baseColor;
+
+        movementScript.canMove = true;
 
     }
 
     void endWet ()
     {
+
+        Debug.Log("End Wet");
         wet = false;
+        playerSprite.color = baseColor;
+
         movementScript.xSpeed = normalSpeed;
 
     }

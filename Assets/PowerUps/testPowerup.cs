@@ -19,7 +19,7 @@ public class testPowerup : MonoBehaviour
     public void Activate (GameObject playerConcerned)
     {
 
-        Debug.Log("Activé! par " + playerConcerned.name);
+        playerConcerned.GetComponent<Debuffs>().ApplyStun(5);
 
     } 
 
