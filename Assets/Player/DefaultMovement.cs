@@ -14,6 +14,7 @@ public class DefaultMovement : MonoBehaviour
     public float jumpForce;
     public int baseNbJumps;
     public int nbJumps;
+    Animator animator;
 
     public bool grounded;
 
@@ -22,6 +23,7 @@ public class DefaultMovement : MonoBehaviour
     {
 
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
     }
 
@@ -42,6 +44,9 @@ public class DefaultMovement : MonoBehaviour
             Jump();
 
         }
+
+        //set grounded for animator
+        animator.SetBool("Grounded", grounded);
 
         //special ability
         if (Input.GetButtonDown("Special" + player))
@@ -76,6 +81,10 @@ public class DefaultMovement : MonoBehaviour
         if (xAxis == 0) {
             xAxis = Input.GetAxisRaw("HorizontalController" + player);
         }
+
+        //set variables for animation
+        animator.SetFloat("xAxis", xAxis);
+        animator.SetFloat("yVelocity",rb.velocity.y);
 
         //set velocity for horizontal movement
         rb.velocity = new Vector3(xAxis * xSpeed, rb.velocity.y);
