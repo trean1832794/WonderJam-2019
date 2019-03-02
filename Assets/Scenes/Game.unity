@@ -442,14 +442,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68a7724f49a4a8458e670abe663759e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wichOne: 0
   convertionPlatformToWorld: 10.3066845
-  cameraSpeed: 50
-  cameraSpeedGrowth: 0
+  cameraSpeed: 15
+  cameraSpeedGrowth: 5
   leftPlatforms: {fileID: 4361767472419722041, guid: 8cc692bbd1d0a05478498c5390718833,
     type: 3}
   rightPlatforms: {fileID: 1421943476127537551, guid: cd922b8afab4a844e8fb6d495414a333,
     type: 3}
+  growthThreshold: 1
+  eventThreshold: 50
+  minimumDistance: 0.7
 --- !u!1 &793864927
 GameObject:
   m_ObjectHideFlags: 0

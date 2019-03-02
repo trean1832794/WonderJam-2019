@@ -144,9 +144,11 @@ public class DefaultMovement : MonoBehaviour
 
         if (collision.tag.Equals("Platform"))
         {
-
-            grounded = true;
-            nbJumps = baseNbJumps;
+            if (!collision.GetComponent<BoxCollider2D>().isTrigger)
+            {
+                grounded = true;
+                nbJumps = baseNbJumps;
+            }
 
 
         }
