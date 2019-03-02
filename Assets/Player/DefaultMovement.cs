@@ -36,9 +36,8 @@ public class DefaultMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         //jumping
-        if (Input.GetButtonDown("JumpKeyboard" + player))
+        if (Input.GetButtonDown("JumpKeyboard" + player) || Input.GetButtonDown("JumpController" + player))
         {
 
             Jump();
@@ -74,6 +73,7 @@ public class DefaultMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log(Input.GetAxisRaw("HorizontalController" + player));
         //get the axis for the controller
         xAxis = Input.GetAxisRaw("HorizontalKeyboard" + player);
         //yAxis = Input.GetAxisRaw("Vertical" + player);
@@ -84,7 +84,6 @@ public class DefaultMovement : MonoBehaviour
 
         //set variables for animation
         animator.SetFloat("xAxis", xAxis);
-        animator.SetFloat("yVelocity",rb.velocity.y);
 
         //set velocity for horizontal movement
         rb.velocity = new Vector3(xAxis * xSpeed, rb.velocity.y);
