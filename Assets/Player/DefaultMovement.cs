@@ -73,7 +73,7 @@ public class DefaultMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(Input.GetAxisRaw("HorizontalController" + player));
+
         //get the axis for the controller
         xAxis = Input.GetAxisRaw("HorizontalKeyboard" + player);
         //yAxis = Input.GetAxisRaw("Vertical" + player);
