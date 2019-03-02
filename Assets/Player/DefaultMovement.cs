@@ -51,6 +51,20 @@ public class DefaultMovement : MonoBehaviour
 
         }
 
+        //flip sprite when looking left
+        if (xAxis < 0)
+        {
+
+            GetComponent<SpriteRenderer>().flipX = true;
+
+        } else if (xAxis > 0)
+        {
+
+            GetComponent<SpriteRenderer>().flipX = false;
+
+
+        }
+
     }
 
     private void FixedUpdate()
