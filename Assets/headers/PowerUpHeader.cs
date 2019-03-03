@@ -20,24 +20,29 @@ public class PowerUpHeader : MonoBehaviour
     void Update()
     {
 
-        transform.position = player.transform.position + new Vector3(0, yOffset);
-
-        if (displayTime > 0.0f)
+        if (player != null)
         {
+            transform.position = player.transform.position + new Vector3(0, yOffset);
 
-            displayTime -= Time.deltaTime;
+            if (displayTime > 0.0f)
+            {
 
-        } else {
+                displayTime -= Time.deltaTime;
+
+            }
+            else
+            {
+
+                Destroy(gameObject);
+
+            }
+
+        } else
+        {
 
             Destroy(gameObject);
 
         }
-
-    }
-
-    private void FixedUpdate()
-    {
-
 
     }
 
