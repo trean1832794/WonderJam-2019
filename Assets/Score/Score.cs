@@ -27,11 +27,11 @@ public class Score : MonoBehaviour
         //calculate score for each player
         if (GameObject.Find("Player1") != null) {
             player1Score = (int)(difficulty * (GameObject.Find("Player1").transform.position.y - startHeight));
-            player1Text.GetComponent<UnityEngine.UI.Text>().text = "P1 SCORE: " + player1Score;
+            player1Text.GetComponent<UnityEngine.UI.Text>().text = player1Score.ToString();
         }
         if (GameObject.Find("Player2") != null) {
             player2Score = (int)(difficulty * (GameObject.Find("Player2").transform.position.y - startHeight));
-            player2Text.GetComponent<UnityEngine.UI.Text>().text = "P2 SCORE: " + player2Score;
+            player2Text.GetComponent<UnityEngine.UI.Text>().text = player2Score.ToString();
         }
     }
 }
