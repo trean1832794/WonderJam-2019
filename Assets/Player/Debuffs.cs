@@ -76,8 +76,7 @@ public class Debuffs : MonoBehaviour
 
     public void ApplyWet (float duration)
     {
-
-        Debug.Log("Apply Wet");
+       
         wetTime = duration;
         wet = true;
         playerSprite.color = wetColor;

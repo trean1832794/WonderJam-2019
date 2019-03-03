@@ -60,9 +60,16 @@ public class Water : MonoBehaviour
 
     public void WaterEvent()
     {
-        offSetY = GameObject.Find("Water").GetComponent<FollowCamera>().baseOffsetY;
-        offSetYEnd = offSetY + Random.Range(2f, 6f);
-        waterEvent = true;
+        if (!waterEvent)
+        {
+            offSetY = GameObject.Find("Water").GetComponent<FollowCamera>().baseOffsetY;
+            offSetYEnd = offSetY + Random.Range(2f, 6f);
+            waterEvent = true;
+        }
+        else
+        {
+            offSetYEnd += 1f;
+        }
     }
 
 }

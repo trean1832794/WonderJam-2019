@@ -8,12 +8,15 @@ public class Geiser : MonoBehaviour
     private float offSetY;
     private float offSetYEnd;
     private bool downward;
+    private float basePosY;
 
     private void Start()
     {
         downward = false;
         offSetY = gameObject.GetComponent<FollowCamera>().baseOffsetY;
-        offSetYEnd = offSetY + 12.5f;
+        offSetYEnd = offSetY + 11.5f;
+        Debug.Log(offSetYEnd);
+        
     }
 
     private void FixedUpdate()
@@ -23,9 +26,15 @@ public class Geiser : MonoBehaviour
             {
             if (gameObject.GetComponent<FollowCamera>().baseOffsetY < offSetYEnd && downward == false)
             {
-
+               
                 gameObject.GetComponent<FollowCamera>().baseOffsetY += Time.fixedDeltaTime*10;
-                GameObject.Find("GeyzerTail").GetComponent<SpriteRenderer>().size = new Vector2(gameObject.GetComponentInChildren<SpriteRenderer>().size.x, GameObject.Find("GeyzerTail").GetComponent<SpriteRenderer>().size.y + Time.fixedDeltaTime * 2f);
+                if (transform.position.x > 0)
+                {
+                    GameObject.Find("GeyzerTail").GetComponent<SpriteRenderer>().size = new Vector2(GameObject.Find("GeyzerTail").GetComponent<SpriteRenderer>().size.x, GameObject.Find("GeyzerTail").GetComponent<SpriteRenderer>().size.y + Time.fixedDeltaTime * 2f);
+                }
+                else {
+                    GameObject.Find("GeyzerTail2").GetComponent<SpriteRenderer>().size = new Vector2(GameObject.Find("GeyzerTail2").GetComponent<SpriteRenderer>().size.x, GameObject.Find("GeyzerTail2").GetComponent<SpriteRenderer>().size.y + Time.fixedDeltaTime * 2f);
+                }
             }
             else if (downward == false)
             {
@@ -36,7 +45,16 @@ public class Geiser : MonoBehaviour
             if(gameObject.GetComponent<FollowCamera>().baseOffsetY > offSetYEnd && downward == true)
             {
                 gameObject.GetComponent<FollowCamera>().baseOffsetY -= Time.fixedDeltaTime*10;
-                GameObject.Find("GeyzerTail").GetComponent<SpriteRenderer>().size = new Vector2(gameObject.GetComponentInChildren<SpriteRenderer>().size.x, GameObject.Find("GeyzerTail").GetComponent<SpriteRenderer>().size.y - Time.fixedDeltaTime * 2f);
+                if (transform.position.x > 0)
+                {
+                    GameObject.Find("GeyzerTail").GetComponent<SpriteRenderer>().size = new Vector2(GameObject.Find("GeyzerTail").GetComponent<SpriteRenderer>().size.x, GameObject.Find("GeyzerTail").GetComponent<SpriteRenderer>().size.y - Time.fixedDeltaTime * 2f);
+                }
+                else
+                {
+                    GameObject.Find("GeyzerTail2").GetComponent<SpriteRenderer>().size = new Vector2(GameObject.Find("GeyzerTail2").GetComponent<SpriteRenderer>().size.x, GameObject.Find("GeyzerTail2").GetComponent<SpriteRenderer>().size.y - Time.fixedDeltaTime * 2f);
+                }
+
+
             }
             else if(downward == true)
             {
@@ -50,12 +68,28 @@ public class Geiser : MonoBehaviour
                 if (gameObject.GetComponent<FollowCamera>().baseOffsetY > offSetY)
                 {
                 gameObject.GetComponent<FollowCamera>().baseOffsetY -= Time.fixedDeltaTime * 10;
-                GameObject.Find("GeyzerTail").GetComponent<SpriteRenderer>().size = new Vector2(gameObject.GetComponentInChildren<SpriteRenderer>().size.x, GameObject.Find("GeyzerTail").GetComponent<SpriteRenderer>().size.y - Time.fixedDeltaTime * 2f);
+                if(transform.position.x > 0)
+                {
+                    GameObject.Find("GeyzerTail").GetComponent<SpriteRenderer>().size = new Vector2(GameObject.Find("GeyzerTail").GetComponent<SpriteRenderer>().size.x, GameObject.Find("GeyzerTail").GetComponent<SpriteRenderer>().size.y - Time.fixedDeltaTime * 2f);
+
+                }
+                else
+                {
+                    GameObject.Find("GeyzerTail2").GetComponent<SpriteRenderer>().size = new Vector2(GameObject.Find("GeyzerTail2").GetComponent<SpriteRenderer>().size.x, GameObject.Find("GeyzerTail2").GetComponent<SpriteRenderer>().size.y - Time.fixedDeltaTime * 2f);
+
+                }
             }
                 else
                 {
                     gameObject.GetComponent<FollowCamera>().baseOffsetY = offSetY;
+                if (transform.position.x > 0)
+                {
                     Destroy(GameObject.Find("GeyzerTail"));
+                }
+                else
+                {
+                    Destroy(GameObject.Find("GeyzerTail2"));
+                }
                     Destroy(gameObject);
                 }
             }
