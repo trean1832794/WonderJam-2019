@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - Bounds
+  - HeadCollision
   layers:
   - Default
   - TransparentFX
