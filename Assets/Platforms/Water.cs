@@ -5,15 +5,47 @@ using UnityEngine;
 public class Water : MonoBehaviour
 {
     public float wetTime;
-    public Vector3 posOffset;
+    private float baseWetTime;
+    private float offSetY;
+    private float offSetYEnd;
+    private bool waterEvent = false;
+
+    private void Start()
+    {
+        baseWetTime = wetTime;
+    }
 
     private void FixedUpdate()
     {
-
-        transform.position = GameObject.Find("Main Camera").transform.position + posOffset;
-
+        if (waterEvent)
+        {
+            if (wetTime > 0)
+            {
+                if (GameObject.Find("Water").GetComponent<FollowCamera>().baseOffsetY < offSetYEnd)
+                {
+                    GameObject.Find("Water").GetComponent<FollowCamera>().baseOffsetY += Time.fixedDeltaTime;
+                }
+                else
+                {
+                    GameObject.Find("Water").GetComponent<FollowCamera>().baseOffsetY = offSetYEnd;
+                }
+                wetTime -= Time.fixedDeltaTime;
+            }
+            else
+            {
+                if (GameObject.Find("Water").GetComponent<FollowCamera>().baseOffsetY > offSetY)
+                {
+                    GameObject.Find("Water").GetComponent<FollowCamera>().baseOffsetY -= Time.fixedDeltaTime;
+                }
+                else
+                {
+                    GameObject.Find("Water").GetComponent<FollowCamera>().baseOffsetY = offSetY;
+                    waterEvent = false;
+                    wetTime = baseWetTime;
+                }
+            }
+        }
     }
-
     private void OnTriggerStay2D(Collider2D collision)
     {
 
@@ -24,6 +56,13 @@ public class Water : MonoBehaviour
 
         }
 
+    }
+
+    public void WaterEvent()
+    {
+        offSetY = GameObject.Find("Water").GetComponent<FollowCamera>().baseOffsetY;
+        offSetYEnd = offSetY + Random.Range(4f, 8f);
+        waterEvent = true;
     }
 
 }
