@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterWalk : MonoBehaviour
+public class Feather : MonoBehaviour
 {
-
     public void Activate(GameObject playerConcerned) {
 
-        //TODO: make player walk on water
+        playerConcerned.GetComponent<Rigidbody2D>().gravityScale -= 2;
 
     }
 
     public void Deactivate(GameObject playerConcerned) {
 
-        //TODO: stop playing from walking on water
+        playerConcerned.GetComponent<Rigidbody2D>().gravityScale += 2;
 
     }
 }
