@@ -6,15 +6,18 @@ public class HarpoonObject : MonoBehaviour
 {
 
     public float moveSpeed;
-    public Vector2 targetPos;
+    public Vector3 targetPos;
     public GameObject target;
     public float rotationOffset;
+    Vector3 diff;
 
     // Start is called before the first frame update
     void Start()
     {
 
-        transform.rotation = Quaternion.Euler(0, 0, Vector2.Angle(transform.position, targetPos) + rotationOffset);
+        diff = targetPos - transform.position;
+        
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(diff.y, diff.x) + rotationOffset);
 
     }
 
@@ -22,7 +25,7 @@ public class HarpoonObject : MonoBehaviour
     void FixedUpdate()
     {
 
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, moveSpeed);
+        transform.position = Vector2.MoveTowards(transform.position, targetPos + diff, moveSpeed);
         if (Vector2.Distance(GameObject.FindGameObjectWithTag("MainCamera").transform.position, transform.position) >= 15)
         {
 

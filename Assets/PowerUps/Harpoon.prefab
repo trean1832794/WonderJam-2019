@@ -94,9 +94,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
-  targetPos: {x: 0, y: 0}
+  targetPos: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
-  rotationOffset: -67.5
+  rotationOffset: -90
 --- !u!70 &15685548592173336
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
