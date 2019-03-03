@@ -27,6 +27,9 @@ public class CameraScript : MonoBehaviour
     public GameObject playerOnePrefab;
     public GameObject playerTwoPrefab;
 
+    public AudioClip menuTheme;
+    public AudioClip gameTheme;
+
     void Start()
     {
         powerUps = Resources.LoadAll<GameObject>("PowerUps");
@@ -251,6 +254,9 @@ public class CameraScript : MonoBehaviour
         seriesSpawnedSinceLastSpeedGrowth = 0;
         seriesSpawnedSinceLastEvent = 0;
         gameStarted = true;
+
+        GetComponent<AudioSource>().clip = gameTheme;
+        GetComponent<AudioSource>().Play();
     }
 
     void GameStarted()
