@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EventSystem : MonoBehaviour
-{
+public class EventSystem : MonoBehaviour {
 
     //public float timeBetweenEvents;
-    public float timeBeforeEvent;
+    public float currentTime;
     public float hazardTime;
     public int nbEvents;
     public GameObject danger1;
@@ -16,87 +13,91 @@ public class EventSystem : MonoBehaviour
     public GameObject fakeTeleportObject;
     private bool eventStarted;
     public AudioClip teleportSound;
+    public AudioClip dangerSound;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
 
-       // timeBetweenEvents += hazardTime;
-       // timeBeforeEvent = timeBetweenEvents;
+        currentTime = hazardTime;
 
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (eventStarted)
-        {
-            if (timeBeforeEvent <= hazardTime)
-            {
+    void Update() {
+        if (eventStarted) {
 
-                //activate hazards
-                danger1.GetComponent<SpriteRenderer>().enabled = true;
-                danger2.GetComponent<SpriteRenderer>().enabled = true;
-                if (timeBeforeEvent <= 0)
-                {
+            if (currentTime <= 0) {
 
-                    //activate event
-                    StartEvent();
-                    // timeBeforeEvent = timeBetweenEvents;
-                    danger1.GetComponent<SpriteRenderer>().enabled = false;
-                    danger2.GetComponent<SpriteRenderer>().enabled = false;
-                    eventStarted = false;
+                StartEvent();
+                eventStarted = false;
+                danger1.GetComponent<SpriteRenderer>().enabled = false;
+                danger2.GetComponent<SpriteRenderer>().enabled = false;
 
-                }
-                else
-                {
 
-                    timeBeforeEvent -= Time.deltaTime;
+                currentTime = hazardTime;
 
-                }
 
+            } else {
+
+                currentTime -= Time.deltaTime;
 
             }
-            else
-            {
 
-                timeBeforeEvent -= Time.deltaTime;
-
-            }
         }
 
     }
-    public void StartEventTimer()
-    {
+    public void StartEventTimer() {
         eventStarted = true;
+
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(dangerSound);
+
+        danger1.GetComponent<SpriteRenderer>().enabled = true;
+        danger2.GetComponent<SpriteRenderer>().enabled = true;
+
     }
-    public void StartEvent ()
-    {
+    public void StartEvent() {
+        int eventNbr;
+
+        // boucle tant que (un des deux joueurs est mort ET l'event n'est pas un event pour un joueur solo)
+        do { 
+            eventNbr = Random.Range(1, nbEvents + 1);
+        } while ((GameObject.Find("Player1") == null || GameObject.Find("Player2") == null) && eventNbr == 1);
 
         Debug.Log("Start Event");
-        switch (Random.Range(1,nbEvents+1))
-        {
 
+        switch (eventNbr) {
             case 1:
+                Debug.Log("Player Swap!");
+
                 //player swap
-                if (GameObject.Find("Player1") != null && GameObject.Find("Player2") != null) {
                 GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(teleportSound);
-                    Instantiate(teleportObject, GameObject.Find("Player1").transform.position, Quaternion.identity);
-                    Instantiate(fakeTeleportObject, GameObject.Find("Player2").transform.position, Quaternion.identity);
-                }
+                Instantiate(teleportObject, GameObject.Find("Player1").transform.position, Quaternion.identity);
+                Instantiate(fakeTeleportObject, GameObject.Find("Player2").transform.position, Quaternion.identity);
 
                 break;
             case 2:
+                Debug.Log("Water!");
 
                 //water rise
+                GameObject.Find("Water").GetComponent<Water>().WaterEvent();
 
-            break;
+                break;
             case 3:
+                Debug.Log("Spin!");
 
+                //camera spin
+                GameObject.Find("Main Camera").GetComponent<CameraScript>().ReverseCamera();
 
+                break;
 
-            break;
+            case 4:
+                Debug.Log("Geiser!");
+
+                //Geiser
+                Instantiate(Resources.Load("Geyzer"), new Vector3(Random.Range(-6.5f, -2.25f), GameObject.Find("Main Camera").transform.position.y - 9), Quaternion.identity);
+                Instantiate(Resources.Load("Geyzer"), new Vector3(Random.Range(6.5f, 2.25f), GameObject.Find("Main Camera").transform.position.y - 9), Quaternion.identity);
+                break;
 
         }
 

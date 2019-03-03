@@ -35,7 +35,7 @@ public class Water : MonoBehaviour
             {
                 if (GameObject.Find("Water").GetComponent<FollowCamera>().baseOffsetY > offSetY)
                 {
-                    GameObject.Find("Water").GetComponent<FollowCamera>().baseOffsetY -= Time.fixedDeltaTime;
+                    GameObject.Find("Water").GetComponent<FollowCamera>().baseOffsetY -= Time.fixedDeltaTime*3;
                 }
                 else
                 {
@@ -52,7 +52,7 @@ public class Water : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player"))
         {
 
-            collision.gameObject.GetComponent<Debuffs>().ApplyWet(wetTime);
+            collision.gameObject.GetComponent<Debuffs>().ApplyWet(baseWetTime);
 
         }
 
@@ -61,7 +61,7 @@ public class Water : MonoBehaviour
     public void WaterEvent()
     {
         offSetY = GameObject.Find("Water").GetComponent<FollowCamera>().baseOffsetY;
-        offSetYEnd = offSetY + Random.Range(4f, 8f);
+        offSetYEnd = offSetY + Random.Range(2f, 6f);
         waterEvent = true;
     }
 
