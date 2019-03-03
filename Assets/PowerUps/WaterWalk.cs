@@ -7,13 +7,16 @@ public class WaterWalk : MonoBehaviour
 
     public void Activate(GameObject playerConcerned) {
 
-        //TODO: make player walk on water
+        //make player immune to wet debuff
+        playerConcerned.GetComponent<Debuffs>().wetImmunity = true;
+        playerConcerned.GetComponent<Debuffs>().ApplyWet(5);
 
     }
 
     public void Deactivate(GameObject playerConcerned) {
 
-        //TODO: stop playing from walking on water
+        //make player vulnerable to wet debuff
+        playerConcerned.GetComponent<Debuffs>().wetImmunity = false;
 
     }
 }
