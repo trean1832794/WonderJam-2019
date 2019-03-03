@@ -3803,6 +3803,7 @@ GameObject:
   - component: {fileID: 1722045561}
   - component: {fileID: 1722045562}
   - component: {fileID: 1722045563}
+  - component: {fileID: 1722045564}
   m_Layer: 0
   m_Name: Event
   m_TagString: Untagged
@@ -4137,7 +4138,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -4252,7 +4253,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 452917297}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3324528656674956312, guid: 1e642175aee06674f9e9ca376868f7d8,
         type: 3}
@@ -4302,7 +4303,7 @@ PrefabInstance:
     - target: {fileID: 3324528656674956322, guid: 1e642175aee06674f9e9ca376868f7d8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3324528656674956322, guid: 1e642175aee06674f9e9ca376868f7d8,
         type: 3}

@@ -13,6 +13,7 @@ public class Debuffs : MonoBehaviour
     public Color stunColor;
     public float stunTime;
     public bool wet;
+    public bool wetImmunity;
     public Color wetColor;
     public float wetTime;
 
@@ -52,22 +53,22 @@ public class Debuffs : MonoBehaviour
 
         }
 
-        if (wet)
-        {
-            if (wetTime <= 0.0f)
+            if (wet)
             {
+                if (wetTime <= 0.0f)
+                {
 
-                endWet();
+                    endWet();
+
+                }
+                else
+                {
+
+                    wetTime -= Time.deltaTime;
+
+                }
 
             }
-            else
-            {
-
-                wetTime -= Time.deltaTime;
-
-            }
-
-        }
 
 
     }
@@ -75,13 +76,18 @@ public class Debuffs : MonoBehaviour
     public void ApplyWet (float duration)
     {
 
-        //divide speed by 2
         Debug.Log("Apply Wet");
         wetTime = duration;
         wet = true;
         playerSprite.color = wetColor;
 
-        movementScript.xSpeed = (normalSpeed / 2);
+        if (!wetImmunity)
+        {
+
+            //divide speed by 2
+            movementScript.xSpeed = (normalSpeed / 2);
+
+        }
 
     }
 

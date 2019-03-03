@@ -74,7 +74,7 @@ public class EventSystem : MonoBehaviour
     {
 
         Debug.Log("Start Event");
-        switch (Random.Range(1,nbEvents))
+        switch (Random.Range(1,nbEvents+1))
         {
 
             case 1:
@@ -86,7 +86,7 @@ public class EventSystem : MonoBehaviour
                 break;
             case 2:
 
-
+                //water rise
 
             break;
             case 3:
