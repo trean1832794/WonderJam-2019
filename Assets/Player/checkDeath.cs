@@ -1,16 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class checkDeath : MonoBehaviour
-{
+public class checkDeath : MonoBehaviour {
     float endScreenTimer = 0;
     bool activateTimer = false;
 
     public void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag.Equals("Player")) {
             int winnerNbr = ((collision.GetComponent<DefaultMovement>().player % 2) + 1);
-            
 
             if (GameObject.Find("Player" + winnerNbr) != null) {
                 Debug.Log(GameObject.Find("Player" + winnerNbr).name + " as gagne!");
