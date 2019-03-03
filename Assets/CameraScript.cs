@@ -314,7 +314,7 @@ public class CameraScript : MonoBehaviour {
         transform.position = victoryPose.transform.position;
         GetComponent<Camera>().orthographicSize = 1;
 
-        if (winner == 1)
+        if (winner != 1)
         {
 
             victoryPose.GetComponent<SpriteRenderer>().sprite = playerOnePrefab.GetComponent<SpriteRenderer>().sprite;
@@ -347,6 +347,8 @@ public class CameraScript : MonoBehaviour {
         chanceOfPowerUpRight = -5;
         gameStarted = false;
         gameReallyStarted = false;
+        GameObject.Find("Boundaries").GetComponent<checkDeath>().won = false;
+        GameObject.Find("Boundaries").GetComponent<checkDeath>().activateTimer = false;
     }
    
 }
