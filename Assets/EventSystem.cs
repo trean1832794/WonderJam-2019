@@ -79,9 +79,10 @@ public class EventSystem : MonoBehaviour
 
             case 1:
                 //player swap
-                Instantiate(teleportObject, GameObject.Find("Player1").transform.position,Quaternion.identity);
-                Instantiate(fakeTeleportObject, GameObject.Find("Player2").transform.position, Quaternion.identity);
-
+                if (GameObject.Find("Player1") != null && GameObject.Find("Player2") != null) {
+                    Instantiate(teleportObject, GameObject.Find("Player1").transform.position, Quaternion.identity);
+                    Instantiate(fakeTeleportObject, GameObject.Find("Player2").transform.position, Quaternion.identity);
+                }
 
                 break;
             case 2:

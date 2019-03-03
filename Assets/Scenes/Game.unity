@@ -620,7 +620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGhostPlatforms: 0
-  difficulty: 0
+  difficulty: 1
   togg: {fileID: 496456395}
   easy: {fileID: 988423012}
   med: {fileID: 766391534}
@@ -1160,6 +1160,49 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &407936431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 407936432}
+  - component: {fileID: 407936433}
+  m_Layer: 0
+  m_Name: ScoreSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &407936432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407936431}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 452917297}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &407936433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407936431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2513e14fd99fac44283f7e1e249dc1d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &452917294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,6 +1287,7 @@ Transform:
   - {fileID: 1437256745}
   - {fileID: 317233851}
   - {fileID: 1809845577}
+  - {fileID: 407936432}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1410,7 +1454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 841805512}
   optionsMenu: {fileID: 216117088}
-  deathScreen: {fileID: 0}
+  deathScreen: {fileID: 636960538}
 --- !u!114 &498317849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2458,7 +2502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 841805512}
   optionsMenu: {fileID: 216117088}
-  deathScreen: {fileID: 0}
+  deathScreen: {fileID: 636960538}
 --- !u!114 &786697498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3319,7 +3363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 841805512}
   optionsMenu: {fileID: 216117088}
-  deathScreen: {fileID: 0}
+  deathScreen: {fileID: 636960538}
 --- !u!114 &1131581402
 MonoBehaviour:
   m_ObjectHideFlags: 0

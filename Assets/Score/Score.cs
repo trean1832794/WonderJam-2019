@@ -23,10 +23,12 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         //calculate score for each player
-        player1Score = (int)(difficulty*(GameObject.Find("Player1").transform.position.y - startHeight));
-        player2Score = (int)(difficulty*(GameObject.Find("Player2").transform.position.y - startHeight));
-
+        if (GameObject.Find("Player1") != null) {
+            player1Score = (int)(difficulty * (GameObject.Find("Player1").transform.position.y - startHeight));
+        }
+        if (GameObject.Find("Player2") != null) {
+            player2Score = (int)(difficulty * (GameObject.Find("Player2").transform.position.y - startHeight));
+        }
     }
 }
