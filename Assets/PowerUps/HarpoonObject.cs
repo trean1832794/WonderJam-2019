@@ -41,7 +41,7 @@ public class HarpoonObject : MonoBehaviour
         if (collision.gameObject == target)
         {
 
-            collision.gameObject.GetComponent<Debuffs>().ApplyStun(3);
+            collision.gameObject.GetComponent<Debuffs>().ApplyStun(1f);
             Destroy(gameObject);
 
         }
