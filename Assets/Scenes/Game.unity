@@ -1293,11 +1293,12 @@ MonoBehaviour:
   eventThreshold: 15
   mininumPowerUpChance: 1
   minimumDistance: 0.7
-  playerOnePrefab: {fileID: 5513934689031917039, guid: f595f9f27f9296d459b0dfe7a38575e0,
+  playerOnePrefab: {fileID: 974354355499722440, guid: 8b1dd74c765d3e34a8a466b2e2206c7b,
     type: 3}
-  playerTwoPrefab: {fileID: 5513934689031917039, guid: f595f9f27f9296d459b0dfe7a38575e0,
+  playerTwoPrefab: {fileID: 9143695517198485646, guid: 6100cf284564e6a42abcaab70c0854f9,
     type: 3}
-  menuTheme: {fileID: 0}
+  torch: {fileID: 2395342911146952407, guid: 28693ff9804f7e44b8f02c764dbe089f, type: 3}
+  menuTheme: {fileID: 8300000, guid: a91c07393f2d87c49ae948ec1d22aaaf, type: 3}
   gameTheme: {fileID: 8300000, guid: e9a8bc1702534144f97108615f860cfd, type: 3}
 --- !u!82 &452917299
 AudioSource:
@@ -2232,7 +2233,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &793864929
 SpriteRenderer:
@@ -4637,7 +4638,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1.63
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -5101,7 +5102,7 @@ PrefabInstance:
     - target: {fileID: 3324528656674956322, guid: 1e642175aee06674f9e9ca376868f7d8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3324528656674956322, guid: 1e642175aee06674f9e9ca376868f7d8,
         type: 3}
