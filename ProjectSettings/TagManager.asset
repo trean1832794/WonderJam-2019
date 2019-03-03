@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Platform
   - Bounds
+  - Wall
+  - HeadCollision
   layers:
   - Default
   - TransparentFX
@@ -51,4 +53,7 @@ TagManager:
     locked: 0
   - name: Danger
     uniqueID: 3764301255
+    locked: 0
+  - name: UI
+    uniqueID: 3214004479
     locked: 0

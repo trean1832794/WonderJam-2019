@@ -17,6 +17,7 @@ public class CameraScript : MonoBehaviour
     public int eventThreshold;
     private int seriesSpawnedSinceLastSpeedGrowth;
     private int seriesSpawnedSinceLastEvent;
+    public int mininumPowerUpChance;
     public float minimumDistance;
     private int changeOfPowerUpLeft = -5;
     private int changeOfPowerUpRight = -5;
@@ -157,7 +158,7 @@ public class CameraScript : MonoBehaviour
                 GameObject powerToSpawn = powerUps[Random.Range(0, powerUps.Length)];
                 GameObject powerUp = Instantiate(powerToSpawn, transform.position, Quaternion.identity);
                 powerUp.transform.position = new Vector3(platformLeft.transform.position.x + (bC.size.x / 2f), platformLeft.transform.position.y + 1.9593f, transform.position.z);
-                changeOfPowerUpLeft = -5;
+                changeOfPowerUpLeft = mininumPowerUpChance;
                 }
                 else if(gameReallyStarted == true)
                 {
@@ -236,7 +237,7 @@ public class CameraScript : MonoBehaviour
                 GameObject powerToSpawn = powerUps[Random.Range(0, powerUps.Length)];
                 GameObject powerUp = Instantiate(powerToSpawn, transform.position, Quaternion.identity);
                 powerUp.transform.position = new Vector3(platform.transform.position.x - (bC.size.x / 2f), platform.transform.position.y + 1.9593f, transform.position.z);
-                changeOfPowerUpRight = -5;
+                changeOfPowerUpRight = mininumPowerUpChance;
             }
             else if(gameReallyStarted == true)
             {
@@ -252,22 +253,39 @@ public class CameraScript : MonoBehaviour
 
     public void StartGame()
     {
+         
+
         startX = transform.position.x;
         cameraSpeed = 0;
-        changeOfPowerUpLeft = -5;
-        changeOfPowerUpRight = -5;
+        changeOfPowerUpLeft = mininumPowerUpChance;
+        changeOfPowerUpRight = mininumPowerUpChance;
         seriesSpawnedSinceLastSpeedGrowth = 0;
         seriesSpawnedSinceLastEvent = 0;
         gameStarted = true;
-
 
     }
 
     void GameStarted()
     {
-        ReverseCamera();
-        cameraSpeed = 15 / 1000f;
-        cameraSpeedGrowth = 5 / 1000f;
+        GameObject.Find("Water").GetComponent<Water>().WaterEvent();
+        switch (GameObject.Find("GameSettings").GetComponent<MenuValueHolder>().difficulty)
+        {
+            case (1):
+                cameraSpeed = 15 / 1000f;
+                cameraSpeedGrowth = 5 / 1000f;
+                break;
+
+            case (2):
+                cameraSpeed = 30 / 1000f;
+                cameraSpeedGrowth = 5 / 1000f;
+                break;
+
+            case (3):
+                cameraSpeed = 40 / 1000f;
+                cameraSpeedGrowth = 10 / 1000f;
+                break;
+        }       
+        
         GameObject leftPlatform = null;
         GameObject rightPlatform = null;
         foreach(GameObject platform in GameObject.FindGameObjectsWithTag("Platform"))
@@ -296,6 +314,15 @@ public class CameraScript : MonoBehaviour
         player2.GetComponent<DefaultMovement>().player = 2;
         gameStarted = false;
         gameReallyStarted = true;
+
+        if (!GameObject.Find("GameSettings").GetComponent<MenuValueHolder>().isGhostPlatforms)
+        {
+            foreach(GameObject headCollision in GameObject.FindGameObjectsWithTag("HeadCollision"))
+            {
+                headCollision.SetActive(false);
+                Debug.Log("NANANANANA");
+            }
+        }
     }
 
     public void EndGame()
