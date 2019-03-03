@@ -15,7 +15,8 @@ public class WaterWalk : MonoBehaviour
     public void Deactivate(GameObject playerConcerned) {
 
         //make player vulnerable to wet debuff
-        playerConcerned.GetComponent<Debuffs>().wetImmunity = false;
-
+        if (playerConcerned != null) {
+            playerConcerned.GetComponent<Debuffs>().wetImmunity = false;
+        }
     }
 }
