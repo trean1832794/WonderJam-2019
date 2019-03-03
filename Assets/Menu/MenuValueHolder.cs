@@ -1,18 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class MenuValueHolder : MonoBehaviour
-{
+public class MenuValueHolder : MonoBehaviour {
     public bool isGhostPlatforms;
     public int difficulty;
     public Toggle togg;
     public Button easy, med, hard;
     public float startHeight;
+
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         difficulty = 1;
         togg.onValueChanged.AddListener(delegate {
             isGhostPlatforms = togg.isOn;
@@ -27,17 +24,8 @@ public class MenuValueHolder : MonoBehaviour
             difficulty = 3;
         });
     }
-    public void setDifficulty(int diff)
-    {
+
+    public void setDifficulty(int diff) {
         this.difficulty = diff;
     }
-    
-        // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
-
-    
 }
