@@ -12,6 +12,8 @@ public class StatGame : MonoBehaviour
     }
     public void callCamera() {
         faded.SetActive(false);
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>().StartGame();
+        GameObject.Find("MainMenu").SetActive(false);
     }
     // Update is called once per frame
     void Update()
