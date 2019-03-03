@@ -17,6 +17,7 @@ public class PowerUp : MonoBehaviour
     public onDeactivate onDeactivate;
     private bool activated;
     private GameObject player;
+    public GameObject header;
 
     private void Awake()
     {
@@ -69,6 +70,13 @@ public class PowerUp : MonoBehaviour
     {
 
         onActivate.Invoke(playerConcerned);
+        if (header != null)
+        {
+
+            GameObject newHeader = Instantiate(header, transform.position + new Vector3(0, header.GetComponent<PowerUpHeader>().yOffset), Quaternion.identity);
+            newHeader.GetComponent<PowerUpHeader>().player = playerConcerned;
+
+        }
 
     }
 

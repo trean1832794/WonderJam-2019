@@ -11,7 +11,7 @@ public class WallShove : MonoBehaviour
     {
 
         GameObject.Find("Player" + ((playerConcerned.GetComponent<DefaultMovement>().player % 2) + 1)).GetComponent<DefaultMovement>().canMove = false;
-        GameObject.Find("Player" + ((playerConcerned.GetComponent<DefaultMovement>().player % 2) + 1)).GetComponent<Rigidbody2D>().AddForce(new Vector3(pushForce,pushForce*2));
+        GameObject.Find("Player" + ((playerConcerned.GetComponent<DefaultMovement>().player % 2) + 1)).GetComponent<Rigidbody2D>().AddForce(new Vector3(pushForce*2,pushForce));
 
     }
 
