@@ -15,6 +15,7 @@ public class GeiserTail : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        GetComponent<BoxCollider2D>().size = new Vector2(GetComponent<BoxCollider2D>().size.x,GetComponent<SpriteRenderer>().size.y);
+        GetComponent<BoxCollider2D>().offset = new Vector2(GetComponent<BoxCollider2D>().offset.x, GetComponent<BoxCollider2D>().size.y / 2f);
     }
 }
