@@ -1293,7 +1293,7 @@ MonoBehaviour:
   eventThreshold: 15
   mininumPowerUpChance: 1
   minimumDistance: 0.7
-  playerOnePrefab: {fileID: 5513934689031917039, guid: f595f9f27f9296d459b0dfe7a38575e0,
+  playerOnePrefab: {fileID: 1876458961674709203, guid: c3dc3e4accb9af64a8248438b70dee95,
     type: 3}
   playerTwoPrefab: {fileID: 5513934689031917039, guid: f595f9f27f9296d459b0dfe7a38575e0,
     type: 3}
