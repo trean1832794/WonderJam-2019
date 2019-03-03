@@ -267,7 +267,7 @@ public class CameraScript : MonoBehaviour
 
     void GameStarted()
     {
-        GameObject.Find("Water").GetComponent<Water>().WaterEvent();
+       
         switch (GameObject.Find("GameSettings").GetComponent<MenuValueHolder>().difficulty)
         {
             case (1):
@@ -302,6 +302,7 @@ public class CameraScript : MonoBehaviour
                 }
             }
         }
+
         GetComponent<AudioSource>().clip = gameTheme;
         GetComponent<AudioSource>().Play();
         
