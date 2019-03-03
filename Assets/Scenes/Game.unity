@@ -5138,6 +5138,11 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.42745098
       objectReference: {fileID: 0}
+    - target: {fileID: 3324528656674956317, guid: 1e642175aee06674f9e9ca376868f7d8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3324528656674956316, guid: 1e642175aee06674f9e9ca376868f7d8,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -5147,6 +5152,10 @@ PrefabInstance:
         type: 3}
       propertyPath: wetTime
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 560119430, guid: 1e642175aee06674f9e9ca376868f7d8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e642175aee06674f9e9ca376868f7d8, type: 3}

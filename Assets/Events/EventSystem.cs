@@ -95,7 +95,8 @@ public class EventSystem : MonoBehaviour {
                 Debug.Log("Geiser!");
 
                 //Geiser
-
+                Instantiate(Resources.Load("Geyzer"), new Vector3(Random.Range(-6.5f, -2.25f), GameObject.Find("Main Camera").transform.position.y - 9), Quaternion.identity);
+                Instantiate(Resources.Load("Geyzer"), new Vector3(Random.Range(6.5f, 2.25f), GameObject.Find("Main Camera").transform.position.y - 9), Quaternion.identity);
                 break;
 
         }
