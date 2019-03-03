@@ -4000,6 +4000,7 @@ MonoBehaviour:
     type: 3}
   fakeTeleportObject: {fileID: 2907905698113712553, guid: a9956a7a43dfb1242a521cbeb2c6520c,
     type: 3}
+  teleportSound: {fileID: 8300000, guid: 41ae81e6e9bb76d4daa4577233eab7e5, type: 3}
 --- !u!114 &1722045563
 MonoBehaviour:
   m_ObjectHideFlags: 0
