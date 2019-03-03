@@ -301,7 +301,10 @@ public class CameraScript : MonoBehaviour {
         }
     }
 
-    public void EndGame() {
+    public void EndGame(int winner) {
+
+
+
     }
 
     public void ReverseCamera() {

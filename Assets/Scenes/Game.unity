@@ -209,7 +209,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &79515654
 SpriteRenderer:
@@ -4054,7 +4054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTime: 0
   hazardTime: 5
-  nbEvents: 4
+  nbEvents: 3
   danger1: {fileID: 1437256744}
   danger2: {fileID: 317233850}
   teleportObject: {fileID: 6080092211111641926, guid: a7a594a85eb381f43b697e0ad9db98d6,
@@ -5102,7 +5102,7 @@ PrefabInstance:
     - target: {fileID: 3324528656674956322, guid: 1e642175aee06674f9e9ca376868f7d8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3324528656674956322, guid: 1e642175aee06674f9e9ca376868f7d8,
         type: 3}

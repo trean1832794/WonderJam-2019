@@ -21,7 +21,7 @@ public class HarpoonObject : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+
         transform.position = Vector2.MoveTowards(transform.position, targetPos, moveSpeed);
         if (Vector2.Distance(GameObject.FindGameObjectWithTag("MainCamera").transform.position, transform.position) >= 15)
         {
