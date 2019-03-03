@@ -1293,9 +1293,9 @@ MonoBehaviour:
   eventThreshold: 15
   mininumPowerUpChance: 1
   minimumDistance: 0.7
-  playerOnePrefab: {fileID: 5513934689031917039, guid: f595f9f27f9296d459b0dfe7a38575e0,
+  playerOnePrefab: {fileID: 974354355499722440, guid: 8b1dd74c765d3e34a8a466b2e2206c7b,
     type: 3}
-  playerTwoPrefab: {fileID: 5513934689031917039, guid: f595f9f27f9296d459b0dfe7a38575e0,
+  playerTwoPrefab: {fileID: 9143695517198485646, guid: 6100cf284564e6a42abcaab70c0854f9,
     type: 3}
   torch: {fileID: 2395342911146952407, guid: 28693ff9804f7e44b8f02c764dbe089f, type: 3}
   menuTheme: {fileID: 8300000, guid: a91c07393f2d87c49ae948ec1d22aaaf, type: 3}
@@ -5139,6 +5139,11 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.42745098
       objectReference: {fileID: 0}
+    - target: {fileID: 3324528656674956317, guid: 1e642175aee06674f9e9ca376868f7d8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3324528656674956316, guid: 1e642175aee06674f9e9ca376868f7d8,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -5148,6 +5153,10 @@ PrefabInstance:
         type: 3}
       propertyPath: wetTime
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 560119430, guid: 1e642175aee06674f9e9ca376868f7d8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e642175aee06674f9e9ca376868f7d8, type: 3}
