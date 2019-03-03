@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5569610538820415775}
   - component: {fileID: 1370501643077990905}
   - component: {fileID: 4469853827960482704}
+  - component: {fileID: 6518916052004426419}
   m_Layer: 0
   m_Name: GeyzerTail
   m_TagString: Untagged
@@ -130,6 +131,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heigth: 0
+--- !u!61 &6518916052004426419
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4469853827960482703}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0053747147, y: 0.3786656}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.51, y: 0.7}
+    newSize: {x: 0.51, y: 0.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 2
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.20184588, y: 0.7573312}
+  m_EdgeRadius: 0
 --- !u!1 &5461127182004523043
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,9 +171,11 @@ GameObject:
   - component: {fileID: 5461127182004523044}
   - component: {fileID: 7640459697155643325}
   - component: {fileID: 8235274361982223133}
+  - component: {fileID: 6013768038818705630}
+  - component: {fileID: 8708580887761102831}
   m_Layer: 0
   m_Name: Geyzer
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,7 +254,7 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: a1c8b2a1756f7de4dad79b2eaa568b96, type: 2}
+  - {fileID: 0}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -275,3 +304,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseOffsetY: 0
+--- !u!50 &6013768038818705630
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461127182004523043}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &8708580887761102831
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461127182004523043}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.006567005, y: -0.17921191}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 1}
+    oldSize: {x: 0.51, y: 1}
+    newSize: {x: 0.51, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 2
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.22229525, y: 0.12738276}
+  m_EdgeRadius: 0
