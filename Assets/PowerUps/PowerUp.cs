@@ -59,6 +59,7 @@ public class PowerUp : MonoBehaviour
             Activate(player);
             activated = true;
             remainingTime = duration;
+            gameObject.GetComponentInChildren<Light>().enabled = false;
 
             //désactive le sprite et le collider
             GetComponent<SpriteRenderer>().enabled = false;
