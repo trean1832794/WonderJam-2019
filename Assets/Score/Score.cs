@@ -9,7 +9,7 @@ public class Score : MonoBehaviour
     public static int player2Score;
     public GameObject player1Text;
     public GameObject player2Text;
-    private float startHeight;
+    public static float startHeight; //not the right value!
     private int difficulty;
 
     // Start is called before the first frame update
