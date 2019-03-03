@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class CameraScript : MonoBehaviour
 {
    
     public float convertionPlatformToWorld;
@@ -18,30 +18,54 @@ public class Camera : MonoBehaviour
     private int seriesSpawnedSinceLastSpeedGrowth;
     private int seriesSpawnedSinceLastEvent;
     public float minimumDistance;
-    
-    
+    private int changeOfPowerUpLeft = -5;
+    private int changeOfPowerUpRight = -5;
+    private GameObject[] powerUps;
+    private bool gameStarted = false;
+    private bool gameReallyStarted = false;
+    private float startX;
+    public GameObject playerOnePrefab;
+    public GameObject playerTwoPrefab;
+
     void Start()
     {
+        powerUps = Resources.LoadAll<GameObject>("PowerUps");
         cameraSpeed = cameraSpeed / 1000f;
-        cameraSpeedGrowth = cameraSpeedGrowth / 1000f;
-        
+      
     }
 
 
     private void FixedUpdate()
     {
-        
-        transform.position = new Vector3(transform.position.x, transform.position.y + cameraSpeed, transform.position.z);
-        if(transform.position.y + 3.5f >= lastHeigthSpawned)
+        //start of game
+        if (gameStarted)
         {
-            if(seriesSpawnedSinceLastSpeedGrowth == growthThreshold) {
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(0, transform.position.y), Time.fixedDeltaTime*5);
+
+        }
+        if (startX - transform.position.x != startX && gameReallyStarted == false && gameStarted == true)
+        {
+            gameObject.GetComponent<Camera>().orthographicSize = (5 + (4 * (transform.position.x / startX)));
+        }
+        else if(gameStarted == true)
+        {
+            gameObject.GetComponent<Camera>().orthographicSize = 5;
+            GameStarted();
+        }
+
+
+        transform.position = new Vector3(transform.position.x, transform.position.y + cameraSpeed, transform.position.z);
+        if(transform.position.y + 7f >= lastHeigthSpawned)
+        {
+            if(seriesSpawnedSinceLastSpeedGrowth == growthThreshold && gameReallyStarted == true) {
                 cameraSpeed += cameraSpeedGrowth;
                 growthThreshold = (int)Mathf.Round(growthThreshold * 1.5f);
                 seriesSpawnedSinceLastSpeedGrowth = 0;
             }
-            if(seriesSpawnedSinceLastEvent == eventThreshold)
+            if(seriesSpawnedSinceLastEvent == eventThreshold && gameReallyStarted == true)
             {
-
+                GameObject.Find("Event").GetComponent<EventSystem>().StartEventTimer();
+                seriesSpawnedSinceLastEvent = 0;
             }
             SpawnPlatforms();
             seriesSpawnedSinceLastEvent++;
@@ -119,6 +143,18 @@ public class Camera : MonoBehaviour
                 BoxCollider2D bC = platformLeft.GetComponent<BoxCollider2D>();
                 bC.size = platformLeft.GetComponent<SpriteRenderer>().size;
                 bC.offset = new Vector2(bC.size.x / 2f, bC.size.y / 2f);
+                if(Random.Range(0,100) < changeOfPowerUpLeft)
+                {
+
+                GameObject powerToSpawn = powerUps[Random.Range(0, powerUps.Length)];
+                GameObject powerUp = Instantiate(powerToSpawn, transform.position, Quaternion.identity);
+                powerUp.transform.position = new Vector3(platformLeft.transform.position.x + (bC.size.x / 2f), platformLeft.transform.position.y + 1.9593f, transform.position.z);
+                changeOfPowerUpLeft = -5;
+                }
+                else if(gameReallyStarted == true)
+                {
+                changeOfPowerUpLeft++;
+                }
 
 
         }
@@ -186,9 +222,21 @@ public class Camera : MonoBehaviour
             BoxCollider2D bC = platform.GetComponent<BoxCollider2D>();
             bC.size = platform.GetComponent<SpriteRenderer>().size;
             bC.offset = new Vector2(-bC.size.x / 2f, bC.size.y / 2f);
+
+            if (Random.Range(0, 100) < changeOfPowerUpLeft)
+            {
+                GameObject powerToSpawn = powerUps[Random.Range(0, powerUps.Length)];
+                GameObject powerUp = Instantiate(powerToSpawn, transform.position, Quaternion.identity);
+                powerUp.transform.position = new Vector3(platform.transform.position.x - (bC.size.x / 2f), platform.transform.position.y + 1.9593f, transform.position.z);
+                changeOfPowerUpRight = -5;
+            }
+            else if(gameReallyStarted == true)
+            {
+                changeOfPowerUpRight++;
+            }
         }
         lastPlatformSidedRight--;
-        lastHeigthSpawned += 3.0f;
+        lastHeigthSpawned += 3f;
 
 
     }
@@ -196,7 +244,44 @@ public class Camera : MonoBehaviour
 
     public void StartGame()
     {
+        startX = transform.position.x;
+        cameraSpeed = 0;
+        changeOfPowerUpLeft = -5;
+        changeOfPowerUpRight = -5;
+        seriesSpawnedSinceLastSpeedGrowth = 0;
+        seriesSpawnedSinceLastEvent = 0;
+        gameStarted = true;
+    }
 
+    void GameStarted()
+    {
+        cameraSpeed = 15 / 1000f;
+        cameraSpeedGrowth = 5 / 1000f;
+        GameObject leftPlatform = null;
+        GameObject rightPlatform = null;
+        foreach(GameObject platform in GameObject.FindGameObjectsWithTag("Platform"))
+        {
+            if(platform.transform.position.y < gameObject.transform.position.y + 4 && platform.transform.position.y > gameObject.transform.position.y - 4)
+            {
+                if(platform.transform.position.x < 0)
+                {
+                    leftPlatform = platform;
+                }
+                else
+                {
+                    rightPlatform = platform;
+                }
+            }
+        }
+       
+        
+        GameObject player1 = Instantiate(playerOnePrefab, new Vector3(leftPlatform.transform.position.x + leftPlatform.GetComponent<BoxCollider2D>().size.x / 2f, leftPlatform.transform.position.y + leftPlatform.GetComponent<BoxCollider2D>().size.y / 2f, transform.position.z), Quaternion.identity);
+        player1.name = ("Player1");          
+        GameObject player2 = Instantiate(playerTwoPrefab, new Vector3(rightPlatform.transform.position.x - rightPlatform.GetComponent<BoxCollider2D>().size.x / 2f, rightPlatform.transform.position.y + rightPlatform.GetComponent<BoxCollider2D>().size.y / 2f, transform.position.z), Quaternion.identity);
+        player2.name = ("Player2");
+        player2.GetComponent<DefaultMovement>().player = 2;
+        gameStarted = false;
+        gameReallyStarted = true;
     }
 
     public void EndGame()
