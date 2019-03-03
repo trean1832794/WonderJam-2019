@@ -1290,8 +1290,8 @@ MonoBehaviour:
   rightPlatforms: {fileID: 1421943476127537551, guid: cd922b8afab4a844e8fb6d495414a333,
     type: 3}
   growthThreshold: 1
-  eventThreshold: 1
-  mininumPowerUpChance: 20
+  eventThreshold: 15
+  mininumPowerUpChance: 5
   minimumDistance: 0.7
   playerOnePrefab: {fileID: 974354355499722440, guid: 8b1dd74c765d3e34a8a466b2e2206c7b,
     type: 3}
@@ -3916,6 +3916,7 @@ MonoBehaviour:
     type: 3}
   teleportSound: {fileID: 8300000, guid: 41ae81e6e9bb76d4daa4577233eab7e5, type: 3}
   dangerSound: {fileID: 8300000, guid: 1fabfe93b2eb35a478230c76931565c0, type: 3}
+  geyserSound: {fileID: 8300000, guid: a16d2eb130f88f74cb82f59b8f177df8, type: 3}
 --- !u!114 &1722045563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4207,6 +4208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f24e6034990352a46b2a86d6b93336ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateTimer: 0
+  won: 0
   winnerText: {fileID: 0}
   deathSound: {fileID: 8300000, guid: a38ba2786583026409fd5920a0d99f5e, type: 3}
 --- !u!114 &1809845581
@@ -4290,6 +4293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bc8f02281f6244ea15d8f91a8438cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuTheme: {fileID: 8300000, guid: a91c07393f2d87c49ae948ec1d22aaaf, type: 3}
 --- !u!114 &1817519686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4330,8 +4334,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: c2e52889268e615489687701d2d6bd55, type: 3}
-        m_MethodName: 
+      - m_Target: {fileID: 1817519685}
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4340,8 +4344,8 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
-      - m_Target: {fileID: 0}
+        m_CallState: 2
+      - m_Target: {fileID: 452917299}
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
@@ -4352,7 +4356,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1817519687

@@ -14,6 +14,7 @@ public class EventSystem : MonoBehaviour {
     private bool eventStarted;
     public AudioClip teleportSound;
     public AudioClip dangerSound;
+    public AudioClip geyserSound;
 
     // Start is called before the first frame update
     void Start() {
@@ -101,6 +102,7 @@ public class EventSystem : MonoBehaviour {
                     geyGey.GetComponent<FollowCamera>().baseOffsetY = -9;
                     geyGey = Instantiate((GameObject)Resources.Load("Geyzer"), new Vector3(Random.Range(6.5f, 2.25f), GameObject.Find("Main Camera").transform.position.y - 9), Quaternion.identity);
                     geyGey.GetComponent<FollowCamera>().baseOffsetY = -9;
+                    GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(geyserSound);
                 }
                 else
                 {

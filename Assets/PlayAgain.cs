@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayAgain : MonoBehaviour
 {
+
+    public AudioClip mainMenuTheme;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +29,10 @@ public class PlayAgain : MonoBehaviour
 
         GameObject.Find("Canvas").GetComponent<sceneStart>().ClearData();
         GameObject.Find("Main Camera").GetComponent<CameraScript>().ResetGame();
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().clip = mainMenuTheme;
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().Stop();
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().Play();
+
+
     }
 }

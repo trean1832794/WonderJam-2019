@@ -307,6 +307,7 @@ public class CameraScript : MonoBehaviour {
 
     public void EndGame(int winner) {
 
+        GetComponent<AudioSource>().Stop();
         GetComponent<AudioSource>().PlayOneShot(victorySound);
         cameraSpeed = 0;
         GameObject leftPlatform = GameObject.Find("LeftPlatform(Clone)");
