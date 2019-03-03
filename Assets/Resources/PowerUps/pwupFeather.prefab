@@ -143,6 +143,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: onDeactivate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  header: {fileID: 2675607383038709817, guid: 8157820ba9ae0cf4f9cf500cd494de6d, type: 3}
+  powerUpSound: {fileID: 8300000, guid: d5666cc5c3a55984099983375f9b0f90, type: 3}
 --- !u!114 &4380877979687379308
 MonoBehaviour:
   m_ObjectHideFlags: 0

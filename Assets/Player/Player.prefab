@@ -285,7 +285,11 @@ MonoBehaviour:
   xSpeed: 6
   jumpForce: 800
   baseNbJumps: 2
+  nbJumps: 0
   canMove: 1
+  player1Jump: {fileID: 8300000, guid: dec49c53af2bc9144a372c0e91d5eb9c, type: 3}
+  player2Jump: {fileID: 8300000, guid: 76da0bfffe7742340bfa5e18a03a1d2d, type: 3}
+  groundSound: {fileID: 8300000, guid: ed8a6a0bbe8930543b46f373aef175df, type: 3}
 --- !u!114 &5513934689031917030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,5 +306,6 @@ MonoBehaviour:
   stunColor: {r: 1, g: 0, b: 0, a: 1}
   stunTime: 0
   wet: 0
+  wetImmunity: 0
   wetColor: {r: 0, g: 0.5114999, b: 1, a: 1}
   wetTime: 0
