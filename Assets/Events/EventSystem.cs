@@ -61,7 +61,7 @@ public class EventSystem : MonoBehaviour {
 
         // boucle tant que (un des deux joueurs est mort ET l'event n'est pas un event pour un joueur solo)
         do { 
-            eventNbr = Random.Range(4, nbEvents + 1);
+            eventNbr = Random.Range(1, nbEvents + 1);
         } while ((GameObject.Find("Player1") == null || GameObject.Find("Player2") == null) && eventNbr == 1);
 
         Debug.Log("Start Event");

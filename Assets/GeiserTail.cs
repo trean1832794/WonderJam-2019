@@ -30,6 +30,7 @@ public class GeiserTail : MonoBehaviour
         {
 
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(0, (-Physics.gravity.y) * 6));
+            collision.gameObject.GetComponent<Debuffs>().ApplyWet(5);
 
         }
 

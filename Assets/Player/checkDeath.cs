@@ -2,8 +2,8 @@
 
 public class checkDeath : MonoBehaviour {
     float endScreenTimer = 0;
-    public bool activateTimer = false;
-    public bool won = false;
+    bool activateTimer = false;
+    bool won = false;
     public GameObject winnerText;
 
     public AudioClip deathSound;
@@ -20,6 +20,7 @@ public class checkDeath : MonoBehaviour {
 
     private void Awake() {
         winnerText = GameObject.Find("WinnerLabel");
+        winnerText.GetComponent<UnityEngine.UI.Text>().enabled = false;
     }
 
     public void OnTriggerEnter2D(Collider2D collision) {
@@ -30,11 +31,13 @@ public class checkDeath : MonoBehaviour {
 
             if (GameObject.Find("Player" + winnerNbr) != null) {
                 Debug.Log(GameObject.Find("Player" + winnerNbr).name + " as gagne!");
+                winnerText.GetComponent<UnityEngine.UI.Text>().enabled = true;
                 winnerText.GetComponent<UnityEngine.UI.Text>().text = ("PLAYER " + winnerNbr + " WON!");
             } else {
 
                 //victory
                 if (!won) {
+                    Debug.Log("Victoire!!!");
                     GameObject.Find("Main Camera").GetComponent<CameraScript>().EndGame(winnerNbr);
                     won = true;
 
@@ -54,3 +57,15 @@ public class checkDeath : MonoBehaviour {
         }
     }
 }
+
+    bool activateTimer = false;
+    bool won = false;
+            } else {
+
+                //victory
+                if (!won) {
+                    GameObject.Find("Main Camera").GetComponent<CameraScript>().EndGame(winnerNbr);
+                    won = true;
+
+                }
+
