@@ -13,7 +13,7 @@ public class DefaultMovement : MonoBehaviour
     public float xSpeed;
     public float jumpForce;
     public int baseNbJumps;
-    private int nbJumps;
+    public int nbJumps;
     Animator animator;
     public bool canMove = true;
 
