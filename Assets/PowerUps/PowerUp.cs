@@ -19,6 +19,8 @@ public class PowerUp : MonoBehaviour
     private GameObject player;
     public GameObject header;
 
+    public AudioClip powerUpSound;
+
     private void Awake()
     {
 
@@ -69,6 +71,7 @@ public class PowerUp : MonoBehaviour
     public void Activate (GameObject playerConcerned)
     {
 
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(powerUpSound);
         onActivate.Invoke(playerConcerned);
         if (header != null)
         {
