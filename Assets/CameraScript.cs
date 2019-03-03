@@ -30,18 +30,15 @@ public class CameraScript : MonoBehaviour
     public AudioClip menuTheme;
     public AudioClip gameTheme;
 
-    private GameObject scoreP1;
-    private GameObject scoreP2;
+    private GameObject scoreCanvas;
 
     void Start()
     {
         powerUps = Resources.LoadAll<GameObject>("PowerUps");
         cameraSpeed = cameraSpeed / 1000f;
 
-        scoreP1 = GameObject.Find("ScoreP1");
-        scoreP2 = GameObject.Find("ScoreP2");
-        scoreP1.SetActive(false);
-        scoreP2.SetActive(false);
+        scoreCanvas = GameObject.Find("Scores");
+        scoreCanvas.SetActive(false);
 
     }
 
@@ -290,8 +287,7 @@ public class CameraScript : MonoBehaviour
         GetComponent<AudioSource>().clip = gameTheme;
         GetComponent<AudioSource>().Play();
         
-        scoreP1.SetActive(true);
-        scoreP2.SetActive(true);
+        scoreCanvas.SetActive(true);
 
         GameObject player1 = Instantiate(playerOnePrefab, new Vector3(leftPlatform.transform.position.x + leftPlatform.GetComponent<BoxCollider2D>().size.x / 2f, leftPlatform.transform.position.y + leftPlatform.GetComponent<BoxCollider2D>().size.y / 2f, transform.position.z), Quaternion.identity);
         player1.name = ("Player1");          
