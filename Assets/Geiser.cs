@@ -15,7 +15,6 @@ public class Geiser : MonoBehaviour
         downward = false;
         offSetY = gameObject.GetComponent<FollowCamera>().baseOffsetY;
         offSetYEnd = offSetY + 11.5f;
-        Debug.Log(offSetYEnd);
         
     }
 

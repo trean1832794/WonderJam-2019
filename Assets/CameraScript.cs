@@ -350,6 +350,8 @@ public class CameraScript : MonoBehaviour {
         gameReallyStarted = false;
         GameObject.Find("Boundaries").GetComponent<checkDeath>().won = false;
         GameObject.Find("Boundaries").GetComponent<checkDeath>().activateTimer = false;
+        GameObject.Find("WinnerLabel").GetComponent<UnityEngine.UI.Text>().enabled = false;
+
     }
    
 }
