@@ -223,7 +223,7 @@ public class CameraScript : MonoBehaviour
             bC.size = platform.GetComponent<SpriteRenderer>().size;
             bC.offset = new Vector2(-bC.size.x / 2f, bC.size.y / 2f);
 
-            if (Random.Range(0, 100) < changeOfPowerUpLeft)
+            if (Random.Range(0, 100) < changeOfPowerUpRight)
             {
                 GameObject powerToSpawn = powerUps[Random.Range(0, powerUps.Length)];
                 GameObject powerUp = Instantiate(powerToSpawn, transform.position, Quaternion.identity);
@@ -255,6 +255,7 @@ public class CameraScript : MonoBehaviour
 
     void GameStarted()
     {
+        ReverseCamera();
         cameraSpeed = 15 / 1000f;
         cameraSpeedGrowth = 5 / 1000f;
         GameObject leftPlatform = null;
@@ -291,7 +292,7 @@ public class CameraScript : MonoBehaviour
 
     public void ReverseCamera()
     {
-        transform.rotation = new Quaternion(0, 0, -180,Quaternion.identity.w);
-        
+       GameObject text = Instantiate((GameObject)Resources.Load("UpsideDown"), transform.position,new Quaternion(0,0,3600,0));
+       text.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
     }
 }
