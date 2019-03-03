@@ -296,7 +296,6 @@ public class CameraScript : MonoBehaviour {
         if (!GameObject.Find("GameSettings").GetComponent<MenuValueHolder>().isGhostPlatforms) {
             foreach (GameObject headCollision in GameObject.FindGameObjectsWithTag("HeadCollision")) {
                 headCollision.SetActive(false);
-                Debug.Log("NANANANANA");
             }
         }
     }

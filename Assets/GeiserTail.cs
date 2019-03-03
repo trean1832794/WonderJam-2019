@@ -10,6 +10,10 @@ public class GeiserTail : MonoBehaviour
     {
         transform.parent = null;
         gameObject.AddComponent<FollowCamera>();
+        if (GameObject.Find("GeyzerTail2") == null)
+        {
+            name = "GeyzerTail2";
+        }
     }
 
     // Update is called once per frame
@@ -24,7 +28,7 @@ public class GeiserTail : MonoBehaviour
         
         if (collision.gameObject.tag.Equals("Player"))
         {
-            Debug.Log("GRAVITTEEEEEE");
+
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(0, (-Physics.gravity.y) * 6));
 
         }
