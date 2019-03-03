@@ -7,10 +7,15 @@ public class SceneChange : MonoBehaviour {
     GameObject optionsMenu;
     [SerializeField]
     GameObject deathScreen;
+    [SerializeField]
+    GameObject characterMenu;
 
     void Start()
     {
-       
+        mainMenu = GameObject.Find("Canvas").GetComponent<sceneStart>().mainMenu;
+        characterMenu = GameObject.Find("Canvas").GetComponent<sceneStart>().charactersMenu;
+        optionsMenu = GameObject.Find("Canvas").GetComponent<sceneStart>().optionsMenu;
+        deathScreen = GameObject.Find("Canvas").GetComponent<sceneStart>().deathScreen;
     }
     public void quitApp() {
         Application.Quit();
@@ -26,10 +31,15 @@ public class SceneChange : MonoBehaviour {
         deathScreen.SetActive(false);
         optionsMenu.SetActive(true);
     }
-
+    public void goToCharacterMenu()
+    {
+        mainMenu.SetActive(false);
+        characterMenu.SetActive(true);
+    }
     public void goBackMainMenu() {
         optionsMenu.SetActive(false);
         deathScreen.SetActive(false);
+        characterMenu.SetActive(false);
         mainMenu.SetActive(true);
     }
 

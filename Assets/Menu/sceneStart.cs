@@ -2,12 +2,15 @@
 
 public class sceneStart : MonoBehaviour {
     [SerializeField]
-    GameObject mainMenu;
+    public GameObject mainMenu;
     [SerializeField]
-    GameObject optionsMenu;
+    public GameObject optionsMenu;
     [SerializeField]
-    GameObject deathScreen;
-    GameObject faded;
+    public GameObject deathScreen;
+    public GameObject faded;
+    [SerializeField]
+    public GameObject charactersMenu;
+
     // Start is called before the first frame update
     public void Awake() {
         faded = GameObject.Find("Faded");
@@ -21,5 +24,6 @@ public class sceneStart : MonoBehaviour {
         mainMenu.SetActive(true);
         deathScreen.SetActive(false);
         faded.SetActive(true);
+        charactersMenu.SetActive(false);
     }
 }
