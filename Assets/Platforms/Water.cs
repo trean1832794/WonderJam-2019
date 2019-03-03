@@ -52,7 +52,7 @@ public class Water : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player"))
         {
 
-            collision.gameObject.GetComponent<Debuffs>().ApplyWet(wetTime);
+            collision.gameObject.GetComponent<Debuffs>().ApplyWet(baseWetTime);
 
         }
 

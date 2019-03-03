@@ -13,6 +13,7 @@ public class EventSystem : MonoBehaviour {
     public GameObject fakeTeleportObject;
     private bool eventStarted;
     public AudioClip teleportSound;
+    public AudioClip dangerSound;
 
     // Start is called before the first frame update
     void Start() {
@@ -32,6 +33,8 @@ public class EventSystem : MonoBehaviour {
                 eventStarted = false;
                 danger1.GetComponent<SpriteRenderer>().enabled = false;
                 danger2.GetComponent<SpriteRenderer>().enabled = false;
+
+
                 currentTime = hazardTime;
 
 
@@ -46,6 +49,8 @@ public class EventSystem : MonoBehaviour {
     }
     public void StartEventTimer() {
         eventStarted = true;
+
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(dangerSound);
 
         danger1.GetComponent<SpriteRenderer>().enabled = true;
         danger2.GetComponent<SpriteRenderer>().enabled = true;

@@ -309,3 +309,4 @@ MonoBehaviour:
   wetImmunity: 0
   wetColor: {r: 0, g: 0.5114999, b: 1, a: 1}
   wetTime: 0
+  stunSound: {fileID: 8300000, guid: a73daf5dcd3f83e47b17605679d67d22, type: 3}

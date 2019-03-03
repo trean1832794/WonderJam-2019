@@ -96,7 +96,7 @@ MonoBehaviour:
   moveSpeed: 0.5
   targetPos: {x: 0, y: 0}
   target: {fileID: 0}
-  rotationOffset: -90
+  rotationOffset: -45
 --- !u!70 &15685548592173336
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

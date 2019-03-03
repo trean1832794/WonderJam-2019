@@ -4,6 +4,8 @@ public class checkDeath : MonoBehaviour {
     float endScreenTimer = 0;
     bool activateTimer = false;
 
+    public AudioClip deathSound;
+
     public void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag.Equals("Player")) {
             int winnerNbr = ((collision.GetComponent<DefaultMovement>().player % 2) + 1);
@@ -18,6 +20,9 @@ public class checkDeath : MonoBehaviour {
             }
             Destroy(collision.gameObject);
             activateTimer = true;
+
+            GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(deathSound);
+
         }
     }
 
