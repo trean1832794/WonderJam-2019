@@ -2,8 +2,8 @@
 
 public class checkDeath : MonoBehaviour {
     float endScreenTimer = 0;
-    bool activateTimer = false;
-    bool won = false;
+    public bool activateTimer = false;
+    public bool won = false;
     public GameObject winnerText;
 
     public AudioClip deathSound;
@@ -57,15 +57,3 @@ public class checkDeath : MonoBehaviour {
         }
     }
 }
-
-    bool activateTimer = false;
-    bool won = false;
-            } else {
-
-                //victory
-                if (!won) {
-                    GameObject.Find("Main Camera").GetComponent<CameraScript>().EndGame(winnerNbr);
-                    won = true;
-
-                }
-
