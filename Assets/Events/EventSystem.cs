@@ -82,12 +82,13 @@ public class EventSystem : MonoBehaviour
             case 2:
 
                 //water rise
+                GameObject.Find("Water").GetComponent<Water>().WaterEvent();
 
             break;
             case 3:
 
                 //camera spin
-
+                GameObject.Find("Main Camera").GetComponent<CameraScript>().ReverseCamera();
 
             break;
 

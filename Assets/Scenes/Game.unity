@@ -4497,9 +4497,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9261d9ed69bd046a68d1ddbd66feee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeEvent: 0
+  currentTime: 0
   hazardTime: 5
-  nbEvents: 1
+  nbEvents: 3
   danger1: {fileID: 1437256744}
   danger2: {fileID: 317233850}
   teleportObject: {fileID: 6080092211111641926, guid: a7a594a85eb381f43b697e0ad9db98d6,
