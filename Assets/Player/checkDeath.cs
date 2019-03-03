@@ -4,8 +4,23 @@ public class checkDeath : MonoBehaviour {
     float endScreenTimer = 0;
     bool activateTimer = false;
     bool won = false;
+    public GameObject winnerText;
 
     public AudioClip deathSound;
+
+    private void Update() {
+        if (activateTimer) {
+            endScreenTimer += Time.deltaTime;
+            if (endScreenTimer >= 2) {
+                GetComponent<SceneChange>().gotoDeathScreen();
+                activateTimer = false;
+            }
+        }
+    }
+
+    private void Awake() {
+        winnerText = GameObject.Find("WinnerLabel");
+    }
 
     public void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag.Equals("Player")) {
@@ -15,12 +30,11 @@ public class checkDeath : MonoBehaviour {
 
             if (GameObject.Find("Player" + winnerNbr) != null) {
                 Debug.Log(GameObject.Find("Player" + winnerNbr).name + " as gagne!");
-            } else
-            {
+                winnerText.GetComponent<UnityEngine.UI.Text>().text = ("PLAYER " + winnerNbr + " WON!");
+            } else {
 
                 //victory
-                if (!won)
-                {
+                if (!won) {
                     Debug.Log("Victoire!!!");
                     GameObject.Find("Main Camera").GetComponent<CameraScript>().EndGame(winnerNbr);
                     won = true;
@@ -38,16 +52,6 @@ public class checkDeath : MonoBehaviour {
 
             GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(deathSound);
 
-        }
-    }
-
-    private void Update() {
-        if (activateTimer) {
-            endScreenTimer += Time.deltaTime;
-            if (endScreenTimer >= 2) {
-                GetComponent<SceneChange>().gotoDeathScreen();
-                activateTimer = false;
-            }
         }
     }
 }
