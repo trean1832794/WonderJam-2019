@@ -244,6 +244,7 @@ public class CameraScript : MonoBehaviour {
         chanceOfPowerUpRight = mininumPowerUpChance;
         seriesSpawnedSinceLastSpeedGrowth = 0;
         seriesSpawnedSinceLastEvent = 0;
+        Score.startHeight = GameObject.Find("Main Camera").transform.position.y;
         gameStarted = true;
 
     }
@@ -301,7 +302,6 @@ public class CameraScript : MonoBehaviour {
     }
 
     public void EndGame() {
-
     }
 
     public void ReverseCamera() {
