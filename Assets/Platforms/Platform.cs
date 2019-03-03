@@ -20,12 +20,12 @@ public class Platform : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(headEnter == true)
-        {
-            if(player.transform.position.y - transform.position.y > 0.249263f)
-            {
-                GetComponent<BoxCollider2D>().isTrigger = false;
-                headEnter = false;
+        if (headEnter == true) {
+            if (player != null) { 
+                if (player.transform.position.y - transform.position.y > 0.249263f) {
+                    GetComponent<BoxCollider2D>().isTrigger = false;
+                    headEnter = false;
+                }
             }
         }
     }
