@@ -27,6 +27,7 @@ public class CameraScript : MonoBehaviour
     private float startX;
     public GameObject playerOnePrefab;
     public GameObject playerTwoPrefab;
+    public GameObject torch;
 
     public AudioClip menuTheme;
     public AudioClip gameTheme;
@@ -247,6 +248,21 @@ public class CameraScript : MonoBehaviour
         lastPlatformSidedRight--;
         lastHeigthSpawned += 3f;
 
+        //spawn torches with a 35% chance
+
+        if (Random.Range(0.0f, 1.01f) <= 0.20f)
+        {
+
+            Instantiate(torch, new Vector3(Random.Range(-7.7f, -1.2f), lastHeigthSpawned + 3), Quaternion.identity);
+
+        }
+
+        if (Random.Range(0.0f, 1.01f) <= 0.20f)
+        {
+
+            Instantiate(torch, new Vector3(Random.Range(7.7f, 1.2f), lastHeigthSpawned + 3), Quaternion.identity);
+
+        }
 
     }
 
@@ -267,7 +283,7 @@ public class CameraScript : MonoBehaviour
 
     void GameStarted()
     {
-        GameObject.Find("Water").GetComponent<Water>().WaterEvent();
+       
         switch (GameObject.Find("GameSettings").GetComponent<MenuValueHolder>().difficulty)
         {
             case (1):
@@ -302,6 +318,7 @@ public class CameraScript : MonoBehaviour
                 }
             }
         }
+
         GetComponent<AudioSource>().clip = gameTheme;
         GetComponent<AudioSource>().Play();
         

@@ -16,6 +16,7 @@ public class Debuffs : MonoBehaviour
     public bool wetImmunity;
     public Color wetColor;
     public float wetTime;
+    public AudioClip stunSound;
 
     private void Awake()
     {
@@ -96,6 +97,7 @@ public class Debuffs : MonoBehaviour
 
         //set speed to 0
         stunned = true;
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(stunSound);
         stunTime = duration;
         playerSprite.color = stunColor;
 
