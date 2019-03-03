@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class DefaultMovement : MonoBehaviour
-{
+public class DefaultMovement : MonoBehaviour {
 
     public int player;
     private float xAxis;
@@ -20,8 +17,7 @@ public class DefaultMovement : MonoBehaviour
     private bool grounded;
 
 
-    private void Awake()
-    {
+    private void Awake() {
 
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -29,21 +25,17 @@ public class DefaultMovement : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
 
         //movement
-        if (canMove)
-        {
+        if (canMove) {
             //jumping
-            if (Input.GetButtonDown("JumpKeyboard" + player) || Input.GetButtonDown("JumpController" + player))
-            {
+            if (Input.GetButtonDown("JumpKeyboard" + player) || Input.GetButtonDown("JumpController" + player)) {
 
                 Jump();
 
@@ -53,22 +45,18 @@ public class DefaultMovement : MonoBehaviour
             animator.SetBool("Grounded", grounded);
 
             //special ability
-            if (Input.GetButtonDown("Special" + player))
-            {
+            if (Input.GetButtonDown("Special" + player)) {
 
                 SpecialAbility();
 
             }
 
             //flip sprite when looking left
-            if (xAxis < 0)
-            {
+            if (xAxis < 0) {
 
                 GetComponent<SpriteRenderer>().flipX = true;
 
-            }
-            else if (xAxis > 0)
-            {
+            } else if (xAxis > 0) {
 
                 GetComponent<SpriteRenderer>().flipX = false;
 
@@ -79,17 +67,14 @@ public class DefaultMovement : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
-    {
-        if (canMove)
-        {
+    private void FixedUpdate() {
+        if (canMove) {
 
             //get the axis for the controller
             xAxis = Input.GetAxisRaw("HorizontalKeyboard" + player);
             //yAxis = Input.GetAxisRaw("Vertical" + player);
 
-            if (xAxis == 0)
-            {
+            if (xAxis == 0) {
                 xAxis = Input.GetAxisRaw("HorizontalController" + player);
             }
 
@@ -104,21 +89,17 @@ public class DefaultMovement : MonoBehaviour
 
     }
 
-    private void Jump ()
-    {
-        if (grounded || nbJumps > 0)
-        {
+    private void Jump() {
+        if (grounded || nbJumps > 0) {
 
             //set la velocity a 0
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            if (nbJumps == baseNbJumps)
-            {
+            if (nbJumps == baseNbJumps) {
                 //premier jump
                 rb.AddForce(new Vector2(0, jumpForce));
 
 
-            } else
-            {
+            } else {
 
                 //double jump
                 rb.AddForce(new Vector2(0, (jumpForce / 1.25f)));
@@ -132,34 +113,31 @@ public class DefaultMovement : MonoBehaviour
 
     }
 
-    public void SpecialAbility ()
-    {
+    public void SpecialAbility() {
 
         Debug.Log("Activatu supechialu ability!");
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.tag.Equals("Bounds")) {
+            grounded = true;
+            nbJumps = baseNbJumps;
+        }
+    }
 
-        if (collision.tag.Equals("Platform"))
-        {
-            if (!collision.GetComponent<BoxCollider2D>().isTrigger)
-            {
+    private void OnTriggerStay2D(Collider2D collision) {
+        if (collision.tag.Equals("Platform")) {
+            if (!collision.GetComponent<BoxCollider2D>().isTrigger) {
                 grounded = true;
                 nbJumps = baseNbJumps;
             }
-
-
         }
-
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
+    private void OnTriggerExit2D(Collider2D collision) {
 
-        if (collision.tag.Equals("Platform"))
-        {
+        if (collision.tag.Equals("Platform")) {
 
             grounded = false;
 
