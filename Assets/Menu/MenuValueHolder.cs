@@ -12,6 +12,12 @@ public class MenuValueHolder : MonoBehaviour {
     void Start() {
         difficulty = 1;
         Color cyan = new Color32(24, 95, 100, 255);
+        //Since diff is easy
+        easy.GetComponent<Text>().color = new Color32(0, 200, 0, 255);
+        med.GetComponent<Text>().color = cyan;
+        hard.GetComponent<Text>().color = cyan;
+
+
         togg.onValueChanged.AddListener(delegate {
             isGhostPlatforms = togg.isOn;
         });

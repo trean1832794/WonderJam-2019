@@ -7,9 +7,12 @@ public class sceneStart : MonoBehaviour {
     GameObject optionsMenu;
     [SerializeField]
     GameObject deathScreen;
+    GameObject characterMenu;
 
     // Start is called before the first frame update
-    public void Awake() {
+    public void Start() {
+        characterMenu = GameObject.Find("CharactersMenu");
+        characterMenu.SetActive(false);
         optionsMenu.SetActive(false);
         mainMenu.SetActive(true);
         deathScreen.SetActive(false);
