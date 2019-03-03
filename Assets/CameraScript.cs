@@ -134,7 +134,8 @@ public class CameraScript : MonoBehaviour {
             bC.offset = new Vector2(bC.size.x / 2f, bC.size.y / 2f);
             if (Random.Range(0, 100) < chanceOfPowerUpLeft) {
                 int powerNbr = Random.Range(0, powerUps.Length);
-                if ((GameObject.Find("Player1") != null && GameObject.Find("Player2") != null) && (powerNbr == 1 || powerNbr == 3 || powerNbr == 5)) {
+                // SI (Les deux joueurs sont en vie OU le power up est un power up qui marche en solo)
+                if ((GameObject.Find("Player1") != null && GameObject.Find("Player2") != null) || (powerNbr == 0 || powerNbr == 2 || powerNbr == 4)) {
                     GameObject powerToSpawn = powerUps[powerNbr];
                     GameObject powerUp = Instantiate(powerToSpawn, transform.position, Quaternion.identity);
                     powerUp.transform.position = new Vector3(platformLeft.transform.position.x + (bC.size.x / 2f), platformLeft.transform.position.y + 1.9593f, transform.position.z);
@@ -204,7 +205,7 @@ public class CameraScript : MonoBehaviour {
 
             if (Random.Range(0, 100) < chanceOfPowerUpRight) {
                 int powerNbr = Random.Range(0, powerUps.Length);
-                if ((GameObject.Find("Player1") != null && GameObject.Find("Player2") != null) && (powerNbr == 1 || powerNbr == 3 || powerNbr == 5)) {
+                if ((GameObject.Find("Player1") != null && GameObject.Find("Player2") != null) || (powerNbr == 0 || powerNbr == 2 || powerNbr == 4)) {
                     GameObject powerToSpawn = powerUps[Random.Range(0, powerUps.Length)];
                     GameObject powerUp = Instantiate(powerToSpawn, transform.position, Quaternion.identity);
                     powerUp.transform.position = new Vector3(platform.transform.position.x - (bC.size.x / 2f), platform.transform.position.y + 1.9593f, transform.position.z);
