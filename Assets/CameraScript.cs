@@ -24,10 +24,14 @@ public class CameraScript : MonoBehaviour {
     private float startX;
     public GameObject playerOnePrefab;
     public GameObject playerTwoPrefab;
+    public GameObject victorySprite;
     public GameObject torch;
+    private GameObject victoryPose;
+    
 
     public AudioClip menuTheme;
     public AudioClip gameTheme;
+    public AudioClip victorySound;
 
     private GameObject scoreCanvas;
 
@@ -245,6 +249,7 @@ public class CameraScript : MonoBehaviour {
         seriesSpawnedSinceLastSpeedGrowth = 0;
         seriesSpawnedSinceLastEvent = 0;
         Score.startHeight = GameObject.Find("Main Camera").transform.position.y;
+        Score.ResetScore();
         gameStarted = true;
 
     }
@@ -302,6 +307,24 @@ public class CameraScript : MonoBehaviour {
 
     public void EndGame(int winner) {
 
+        GetComponent<AudioSource>().PlayOneShot(victorySound);
+        cameraSpeed = 0;
+        GameObject leftPlatform = GameObject.Find("LeftPlatform(Clone)");
+        victoryPose = Instantiate(victorySprite,new Vector3(leftPlatform.transform.position.x + leftPlatform.GetComponent<BoxCollider2D>().size.x / 2f, leftPlatform.transform.position.y + leftPlatform.GetComponent<BoxCollider2D>().size.y / 2f, transform.position.z), Quaternion.identity);
+        transform.position = victoryPose.transform.position;
+        GetComponent<Camera>().orthographicSize = 1;
+
+        if (winner != 1)
+        {
+
+            victoryPose.GetComponent<SpriteRenderer>().sprite = playerOnePrefab.GetComponent<SpriteRenderer>().sprite;
+
+        } else
+        {
+
+            victoryPose.GetComponent<SpriteRenderer>().sprite = playerTwoPrefab.GetComponent<SpriteRenderer>().sprite;
+
+        }
 
 
     }
@@ -310,4 +333,22 @@ public class CameraScript : MonoBehaviour {
         GameObject text = Instantiate((GameObject)Resources.Load("UpsideDown"), transform.position, new Quaternion(0, 0, 3600, 0));
         text.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
     }
+
+    public void ResetGame()
+    {
+        if(victoryPose != null)
+        {
+            Destroy(victoryPose);
+        }
+        transform.position = new Vector3(0, transform.position.y);
+        GetComponent<Camera>().orthographicSize = 5;
+        cameraSpeed = 30f / 1000;
+        chanceOfPowerUpLeft = -5;
+        chanceOfPowerUpRight = -5;
+        gameStarted = false;
+        gameReallyStarted = false;
+        GameObject.Find("Boundaries").GetComponent<checkDeath>().won = false;
+        GameObject.Find("Boundaries").GetComponent<checkDeath>().activateTimer = false;
+    }
+   
 }
