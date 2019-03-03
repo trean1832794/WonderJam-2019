@@ -1297,9 +1297,12 @@ MonoBehaviour:
     type: 3}
   playerTwoPrefab: {fileID: 9143695517198485646, guid: 6100cf284564e6a42abcaab70c0854f9,
     type: 3}
+  victorySprite: {fileID: 913578120574412438, guid: fc6769480c6428d4e8f9b995bac4817e,
+    type: 3}
   torch: {fileID: 2395342911146952407, guid: 28693ff9804f7e44b8f02c764dbe089f, type: 3}
   menuTheme: {fileID: 8300000, guid: a91c07393f2d87c49ae948ec1d22aaaf, type: 3}
   gameTheme: {fileID: 8300000, guid: e9a8bc1702534144f97108615f860cfd, type: 3}
+  victorySound: {fileID: 8300000, guid: 15dafdb09103c6f439c118a78a1bce7c, type: 3}
 --- !u!82 &452917299
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4432,12 +4435,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1817519683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64cc73b59a574cf419af37d1e33be872, type: 3}
+  m_Script: {fileID: 11500000, guid: f8bc8f02281f6244ea15d8f91a8438cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 1354791523}
-  optionsMenu: {fileID: 890408728}
-  deathScreen: {fileID: 734807425}
 --- !u!114 &1817519686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4479,7 +4479,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1817519685}
-        m_MethodName: changeScene
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
