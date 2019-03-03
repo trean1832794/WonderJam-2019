@@ -57,3 +57,15 @@ public class checkDeath : MonoBehaviour {
         }
     }
 }
+
+    bool activateTimer = false;
+    bool won = false;
+            } else {
+
+                //victory
+                if (!won) {
+                    GameObject.Find("Main Camera").GetComponent<CameraScript>().EndGame(winnerNbr);
+                    won = true;
+
+                }
+
