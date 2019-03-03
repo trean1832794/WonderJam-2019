@@ -99,7 +99,7 @@ public class Debuffs : MonoBehaviour
         GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(stunSound);
         stunTime = duration;
         playerSprite.color = stunColor;
-
+        GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
         movementScript.canMove = false;
 
     }
