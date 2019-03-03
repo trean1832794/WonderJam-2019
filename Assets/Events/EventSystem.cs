@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EventSystem : MonoBehaviour
-{
+public class EventSystem : MonoBehaviour {
 
     //public float timeBetweenEvents;
     public float currentTime;
@@ -18,8 +15,7 @@ public class EventSystem : MonoBehaviour
     public AudioClip teleportSound;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
 
         currentTime = hazardTime;
 
@@ -27,13 +23,10 @@ public class EventSystem : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (eventStarted)
-        {
+    void Update() {
+        if (eventStarted) {
 
-            if (currentTime <= 0)
-            {
+            if (currentTime <= 0) {
 
                 StartEvent();
                 eventStarted = false;
@@ -42,8 +35,7 @@ public class EventSystem : MonoBehaviour
                 currentTime = hazardTime;
 
 
-            } else
-            {
+            } else {
 
                 currentTime -= Time.deltaTime;
 
@@ -52,45 +44,54 @@ public class EventSystem : MonoBehaviour
         }
 
     }
-    public void StartEventTimer()
-    {
+    public void StartEventTimer() {
         eventStarted = true;
 
         danger1.GetComponent<SpriteRenderer>().enabled = true;
         danger2.GetComponent<SpriteRenderer>().enabled = true;
 
     }
-    public void StartEvent ()
-    {
+    public void StartEvent() {
+        int eventNbr;
+
+        // boucle tant que (un des deux joueurs est mort ET l'event n'est pas un event pour un joueur solo)
+        do { 
+            eventNbr = Random.Range(1, nbEvents + 1);
+        } while ((GameObject.Find("Player1") == null || GameObject.Find("Player2") == null) && eventNbr == 1);
 
         Debug.Log("Start Event");
-        switch (Random.Range(1,nbEvents+1))
-        {
 
+        switch (eventNbr) {
             case 1:
-
                 Debug.Log("Player Swap!");
 
                 //player swap
-                if (GameObject.Find("Player1") != null && GameObject.Find("Player2") != null) {
                 GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(teleportSound);
-                    Instantiate(teleportObject, GameObject.Find("Player1").transform.position, Quaternion.identity);
-                    Instantiate(fakeTeleportObject, GameObject.Find("Player2").transform.position, Quaternion.identity);
-                }
+                Instantiate(teleportObject, GameObject.Find("Player1").transform.position, Quaternion.identity);
+                Instantiate(fakeTeleportObject, GameObject.Find("Player2").transform.position, Quaternion.identity);
 
                 break;
             case 2:
+                Debug.Log("Water!");
 
                 //water rise
                 GameObject.Find("Water").GetComponent<Water>().WaterEvent();
 
-            break;
+                break;
             case 3:
+                Debug.Log("Spin!");
 
                 //camera spin
                 GameObject.Find("Main Camera").GetComponent<CameraScript>().ReverseCamera();
 
-            break;
+                break;
+
+            case 4:
+                Debug.Log("Geiser!");
+
+                //Geiser
+
+                break;
 
         }
 
