@@ -908,7 +908,6 @@ GameObject:
   - component: {fileID: 328758485}
   - component: {fileID: 328758484}
   - component: {fileID: 328758483}
-  - component: {fileID: 328758482}
   m_Layer: 5
   m_Name: P1 wins
   m_TagString: Untagged
@@ -935,21 +934,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 8.250195}
   m_SizeDelta: {x: 428, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &328758482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328758480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64cc73b59a574cf419af37d1e33be872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
-  optionsMenu: {fileID: 0}
-  deathScreen: {fileID: 0}
 --- !u!114 &328758483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -990,7 +974,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 328758482}
+      - m_Target: {fileID: 0}
         m_MethodName: changeScene
         m_Mode: 1
         m_Arguments:
@@ -2345,7 +2329,6 @@ GameObject:
   - component: {fileID: 694095543}
   - component: {fileID: 694095542}
   - component: {fileID: 694095541}
-  - component: {fileID: 694095540}
   m_Layer: 5
   m_Name: P2 wins
   m_TagString: Untagged
@@ -2372,21 +2355,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 8.250195}
   m_SizeDelta: {x: 428, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &694095540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 694095538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64cc73b59a574cf419af37d1e33be872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
-  optionsMenu: {fileID: 0}
-  deathScreen: {fileID: 0}
 --- !u!114 &694095541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2427,7 +2395,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 694095540}
+      - m_Target: {fileID: 0}
         m_MethodName: changeScene
         m_Mode: 1
         m_Arguments:
@@ -2848,9 +2816,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64cc73b59a574cf419af37d1e33be872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
-  optionsMenu: {fileID: 0}
-  deathScreen: {fileID: 0}
+  mainMenu: {fileID: 841805512}
+  optionsMenu: {fileID: 216117088}
+  deathScreen: {fileID: 941899718}
 --- !u!114 &786697498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4763,9 +4731,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64cc73b59a574cf419af37d1e33be872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
-  optionsMenu: {fileID: 0}
-  deathScreen: {fileID: 0}
+  mainMenu: {fileID: 841805512}
+  optionsMenu: {fileID: 216117088}
+  deathScreen: {fileID: 941899718}
 --- !u!114 &1809845582
 MonoBehaviour:
   m_ObjectHideFlags: 0
