@@ -249,6 +249,7 @@ public class CameraScript : MonoBehaviour {
         seriesSpawnedSinceLastSpeedGrowth = 0;
         seriesSpawnedSinceLastEvent = 0;
         Score.startHeight = GameObject.Find("Main Camera").transform.position.y;
+        Score.ResetScore();
         gameStarted = true;
 
     }
