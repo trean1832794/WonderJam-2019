@@ -1436,6 +1436,7 @@ MonoBehaviour:
     type: 3}
   growthThreshold: 1
   eventThreshold: 30
+  mininumPowerUpChance: 1
   minimumDistance: 0.7
   playerOnePrefab: {fileID: 5513934689031917039, guid: f595f9f27f9296d459b0dfe7a38575e0,
     type: 3}
@@ -5318,7 +5319,7 @@ PrefabInstance:
     - target: {fileID: 3324528656674956322, guid: 1e642175aee06674f9e9ca376868f7d8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.02
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 3324528656674956322, guid: 1e642175aee06674f9e9ca376868f7d8,
         type: 3}
