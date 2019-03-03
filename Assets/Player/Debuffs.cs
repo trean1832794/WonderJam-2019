@@ -104,7 +104,7 @@ public class Debuffs : MonoBehaviour
 
     }
 
-    void endStun ()
+    public void endStun ()
     {
 
         stunned = false;
@@ -114,7 +114,7 @@ public class Debuffs : MonoBehaviour
 
     }
 
-    void endWet ()
+    public void endWet ()
     {
 
         Debug.Log("End Wet");
