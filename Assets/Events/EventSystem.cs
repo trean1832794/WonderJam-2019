@@ -15,6 +15,7 @@ public class EventSystem : MonoBehaviour
     public GameObject teleportObject;
     public GameObject fakeTeleportObject;
     private bool eventStarted;
+    public AudioClip teleportSound;
 
     // Start is called before the first frame update
     void Start()
@@ -79,9 +80,11 @@ public class EventSystem : MonoBehaviour
 
             case 1:
                 //player swap
-                Instantiate(teleportObject, GameObject.Find("Player1").transform.position,Quaternion.identity);
-                Instantiate(fakeTeleportObject, GameObject.Find("Player2").transform.position, Quaternion.identity);
-
+                if (GameObject.Find("Player1") != null && GameObject.Find("Player2") != null) {
+                GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(teleportSound);
+                    Instantiate(teleportObject, GameObject.Find("Player1").transform.position, Quaternion.identity);
+                    Instantiate(fakeTeleportObject, GameObject.Find("Player2").transform.position, Quaternion.identity);
+                }
 
                 break;
             case 2:

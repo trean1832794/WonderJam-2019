@@ -17,6 +17,9 @@ public class PowerUp : MonoBehaviour
     public onDeactivate onDeactivate;
     private bool activated;
     private GameObject player;
+    public GameObject header;
+
+    public AudioClip powerUpSound;
 
     private void Awake()
     {
@@ -68,7 +71,15 @@ public class PowerUp : MonoBehaviour
     public void Activate (GameObject playerConcerned)
     {
 
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(powerUpSound);
         onActivate.Invoke(playerConcerned);
+        if (header != null)
+        {
+
+            GameObject newHeader = Instantiate(header, transform.position + new Vector3(0, header.GetComponent<PowerUpHeader>().yOffset), Quaternion.identity);
+            newHeader.GetComponent<PowerUpHeader>().player = playerConcerned;
+
+        }
 
     }
 

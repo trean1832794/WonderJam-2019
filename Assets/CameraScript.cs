@@ -27,11 +27,19 @@ public class CameraScript : MonoBehaviour
     public GameObject playerOnePrefab;
     public GameObject playerTwoPrefab;
 
+    public AudioClip menuTheme;
+    public AudioClip gameTheme;
+
+    private GameObject scoreCanvas;
+
     void Start()
     {
         powerUps = Resources.LoadAll<GameObject>("PowerUps");
         cameraSpeed = cameraSpeed / 1000f;
-      
+
+        scoreCanvas = GameObject.Find("Scores");
+        scoreCanvas.SetActive(false);
+
     }
 
 
@@ -223,7 +231,7 @@ public class CameraScript : MonoBehaviour
             bC.size = platform.GetComponent<SpriteRenderer>().size;
             bC.offset = new Vector2(-bC.size.x / 2f, bC.size.y / 2f);
 
-            if (Random.Range(0, 100) < changeOfPowerUpLeft)
+            if (Random.Range(0, 100) < changeOfPowerUpRight)
             {
                 GameObject powerToSpawn = powerUps[Random.Range(0, powerUps.Length)];
                 GameObject powerUp = Instantiate(powerToSpawn, transform.position, Quaternion.identity);
@@ -251,10 +259,13 @@ public class CameraScript : MonoBehaviour
         seriesSpawnedSinceLastSpeedGrowth = 0;
         seriesSpawnedSinceLastEvent = 0;
         gameStarted = true;
+
+
     }
 
     void GameStarted()
     {
+        ReverseCamera();
         cameraSpeed = 15 / 1000f;
         cameraSpeedGrowth = 5 / 1000f;
         GameObject leftPlatform = null;
@@ -273,8 +284,11 @@ public class CameraScript : MonoBehaviour
                 }
             }
         }
-       
+        GetComponent<AudioSource>().clip = gameTheme;
+        GetComponent<AudioSource>().Play();
         
+        scoreCanvas.SetActive(true);
+
         GameObject player1 = Instantiate(playerOnePrefab, new Vector3(leftPlatform.transform.position.x + leftPlatform.GetComponent<BoxCollider2D>().size.x / 2f, leftPlatform.transform.position.y + leftPlatform.GetComponent<BoxCollider2D>().size.y / 2f, transform.position.z), Quaternion.identity);
         player1.name = ("Player1");          
         GameObject player2 = Instantiate(playerTwoPrefab, new Vector3(rightPlatform.transform.position.x - rightPlatform.GetComponent<BoxCollider2D>().size.x / 2f, rightPlatform.transform.position.y + rightPlatform.GetComponent<BoxCollider2D>().size.y / 2f, transform.position.z), Quaternion.identity);
@@ -291,7 +305,7 @@ public class CameraScript : MonoBehaviour
 
     public void ReverseCamera()
     {
-        transform.rotation = new Quaternion(0, 0, -180,Quaternion.identity.w);
-        
+       GameObject text = Instantiate((GameObject)Resources.Load("UpsideDown"), transform.position,new Quaternion(0,0,3600,0));
+       text.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
     }
 }

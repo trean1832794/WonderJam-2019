@@ -12,7 +12,8 @@ public class Feather : MonoBehaviour
 
     public void Deactivate(GameObject playerConcerned) {
 
-        playerConcerned.GetComponent<Rigidbody2D>().gravityScale += 2;
-
+        if (playerConcerned != null) {
+            playerConcerned.GetComponent<Rigidbody2D>().gravityScale += 2;
+        }
     }
 }
