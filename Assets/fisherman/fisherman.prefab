@@ -143,3 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b7e651234dc654b96fbffd99566f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTime: 0
+  harpoon: {fileID: 0}
+  playerConcerned: {fileID: 0}

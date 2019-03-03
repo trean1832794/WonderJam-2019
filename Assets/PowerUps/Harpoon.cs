@@ -21,6 +21,7 @@ public class Harpoon : MonoBehaviour {
             fish.GetComponent<FollowCamera>().baseOffsetY = -6.5f;
             fish.GetComponent<Fisherman>().harpoon = harpoon;
             fish.GetComponent<Fisherman>().playerConcerned = playerConcerned;
+            fish.GetComponent<Fisherman>().animTime = 0.9f;
             if ((GameObject.Find("Player" + ((playerConcerned.GetComponent<DefaultMovement>().player % 2) + 1)).transform.position.x > 0)){
                 fish.GetComponent<SpriteRenderer>().flipX = true;
             }

@@ -22,7 +22,7 @@ public class Fisherman : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(GetComponent<FollowCamera>().baseOffsetY < offSetYEnd && harpoonShot == false)
+        if(GetComponent<FollowCamera>().baseOffsetY < offSetYEnd && !harpoonShot)
         {
             GetComponent<FollowCamera>().baseOffsetY += Time.fixedDeltaTime;
             animStarted = true;
