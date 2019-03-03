@@ -255,8 +255,7 @@ public class CameraScript : MonoBehaviour
         seriesSpawnedSinceLastEvent = 0;
         gameStarted = true;
 
-        GetComponent<AudioSource>().clip = gameTheme;
-        GetComponent<AudioSource>().Play();
+
     }
 
     void GameStarted()
@@ -280,7 +279,9 @@ public class CameraScript : MonoBehaviour
                 }
             }
         }
-       
+
+        GetComponent<AudioSource>().clip = gameTheme;
+        GetComponent<AudioSource>().Play();
         
         GameObject player1 = Instantiate(playerOnePrefab, new Vector3(leftPlatform.transform.position.x + leftPlatform.GetComponent<BoxCollider2D>().size.x / 2f, leftPlatform.transform.position.y + leftPlatform.GetComponent<BoxCollider2D>().size.y / 2f, transform.position.z), Quaternion.identity);
         player1.name = ("Player1");          
