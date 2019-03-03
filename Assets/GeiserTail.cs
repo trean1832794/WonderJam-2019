@@ -18,4 +18,17 @@ public class GeiserTail : MonoBehaviour
         GetComponent<BoxCollider2D>().size = new Vector2(GetComponent<BoxCollider2D>().size.x,GetComponent<SpriteRenderer>().size.y);
         GetComponent<BoxCollider2D>().offset = new Vector2(GetComponent<BoxCollider2D>().offset.x, GetComponent<BoxCollider2D>().size.y / 2f);
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            Debug.Log("GRAVITTEEEEEE");
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(0, (-Physics.gravity.y) * 6));
+
+        }
+
+    }
+
 }
