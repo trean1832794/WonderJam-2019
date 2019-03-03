@@ -245,6 +245,7 @@ public class CameraScript : MonoBehaviour {
         seriesSpawnedSinceLastSpeedGrowth = 0;
         seriesSpawnedSinceLastEvent = 0;
         Score.startHeight = GameObject.Find("Main Camera").transform.position.y;
+        Score.ResetScore();
         gameStarted = true;
 
     }
@@ -296,12 +297,14 @@ public class CameraScript : MonoBehaviour {
         if (!GameObject.Find("GameSettings").GetComponent<MenuValueHolder>().isGhostPlatforms) {
             foreach (GameObject headCollision in GameObject.FindGameObjectsWithTag("HeadCollision")) {
                 headCollision.SetActive(false);
-                Debug.Log("NANANANANA");
             }
         }
     }
 
-    public void EndGame() {
+    public void EndGame(int winner) {
+
+
+
     }
 
     public void ReverseCamera() {

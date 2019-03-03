@@ -61,7 +61,7 @@ public class EventSystem : MonoBehaviour {
 
         // boucle tant que (un des deux joueurs est mort ET l'event n'est pas un event pour un joueur solo)
         do { 
-            eventNbr = Random.Range(1, nbEvents + 1);
+            eventNbr = Random.Range(4, nbEvents + 1);
         } while ((GameObject.Find("Player1") == null || GameObject.Find("Player2") == null) && eventNbr == 1);
 
         Debug.Log("Start Event");
@@ -92,11 +92,20 @@ public class EventSystem : MonoBehaviour {
                 break;
 
             case 4:
-                Debug.Log("Geiser!");
+
 
                 //Geiser
-                Instantiate(Resources.Load("Geyzer"), new Vector3(Random.Range(-6.5f, -2.25f), GameObject.Find("Main Camera").transform.position.y - 9), Quaternion.identity);
-                Instantiate(Resources.Load("Geyzer"), new Vector3(Random.Range(6.5f, 2.25f), GameObject.Find("Main Camera").transform.position.y - 9), Quaternion.identity);
+                if (GameObject.Find("Geyzer(Clone)") == null)
+                {
+                    GameObject geyGey = Instantiate((GameObject)Resources.Load("Geyzer"), new Vector3(Random.Range(-6.5f, -2.25f), GameObject.Find("Main Camera").transform.position.y - 9), Quaternion.identity);
+                    geyGey.GetComponent<FollowCamera>().baseOffsetY = -9;
+                    geyGey = Instantiate((GameObject)Resources.Load("Geyzer"), new Vector3(Random.Range(6.5f, 2.25f), GameObject.Find("Main Camera").transform.position.y - 9), Quaternion.identity);
+                    geyGey.GetComponent<FollowCamera>().baseOffsetY = -9;
+                }
+                else
+                {
+                    GameObject.Find("Water").GetComponent<Water>().WaterEvent();
+                }
                 break;
 
         }

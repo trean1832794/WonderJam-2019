@@ -83,7 +83,7 @@ public class DefaultMovement : MonoBehaviour {
             }
 
             //set variables for animation
-            animator.SetFloat("xAxis", xAxis);
+            animator.SetFloat("xAxis", xAxis);  
 
             //set velocity for horizontal movemen
 
@@ -148,7 +148,7 @@ public class DefaultMovement : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.tag.Equals("Platform")) {
-            if (!collision.GetComponent<BoxCollider2D>().isTrigger) {
+            if (!collision.GetComponent<BoxCollider2D>().isTrigger && transform.position.y > collision.transform.position.y && rb.velocity.y <= 0) {
                 if (!grounded)
                 {
                     GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(groundSound);

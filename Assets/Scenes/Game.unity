@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311912, g: 0.3807398, b: 0.3587271, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -209,7 +209,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &79515654
 SpriteRenderer:
@@ -1291,7 +1291,7 @@ MonoBehaviour:
     type: 3}
   growthThreshold: 1
   eventThreshold: 15
-  mininumPowerUpChance: 1
+  mininumPowerUpChance: 20
   minimumDistance: 0.7
   playerOnePrefab: {fileID: 974354355499722440, guid: 8b1dd74c765d3e34a8a466b2e2206c7b,
     type: 3}
@@ -4965,7 +4965,7 @@ PrefabInstance:
     - target: {fileID: 3324528656674956322, guid: 1e642175aee06674f9e9ca376868f7d8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3324528656674956322, guid: 1e642175aee06674f9e9ca376868f7d8,
         type: 3}
