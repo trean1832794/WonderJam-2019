@@ -3,6 +3,7 @@
 public class checkDeath : MonoBehaviour {
     float endScreenTimer = 0;
     bool activateTimer = false;
+    bool won = false;
 
     public AudioClip deathSound;
 
@@ -10,8 +11,22 @@ public class checkDeath : MonoBehaviour {
         if (collision.tag.Equals("Player")) {
             int winnerNbr = ((collision.GetComponent<DefaultMovement>().player % 2) + 1);
 
+
+
             if (GameObject.Find("Player" + winnerNbr) != null) {
                 Debug.Log(GameObject.Find("Player" + winnerNbr).name + " as gagne!");
+            } else
+            {
+
+                //victory
+                if (!won)
+                {
+                    Debug.Log("Victoire!!!");
+                    GameObject.Find("Main Camera").GetComponent<CameraScript>().EndGame(winnerNbr);
+                    won = true;
+
+                }
+
             }
             if (winnerNbr == 1) {
                 Debug.Log("Le joueur (2) a été éliminé avec " + Score.player2Score + " de score.");
