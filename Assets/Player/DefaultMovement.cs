@@ -134,6 +134,18 @@ public class DefaultMovement : MonoBehaviour {
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        if (!canMove && collision.gameObject.tag == "Wall")
+        {
+
+            canMove = true;
+
+        }
+
+    }
+
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.tag.Equals("Platform")) {
             if (!collision.GetComponent<BoxCollider2D>().isTrigger) {
