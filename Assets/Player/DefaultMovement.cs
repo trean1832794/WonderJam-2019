@@ -14,6 +14,10 @@ public class DefaultMovement : MonoBehaviour {
     Animator animator;
     public bool canMove = true;
 
+    public AudioClip player1Jump;
+    public AudioClip player2Jump;
+    public AudioClip groundSound;
+
     private bool grounded;
 
 
@@ -107,6 +111,17 @@ public class DefaultMovement : MonoBehaviour {
             }
 
             nbJumps--;
+            if (player == 1)
+            {
+
+                GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(player1Jump);
+
+            } else
+            {
+
+                GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(player2Jump);
+
+            }
 
         }
         grounded = false;
@@ -122,8 +137,13 @@ public class DefaultMovement : MonoBehaviour {
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.tag.Equals("Platform")) {
             if (!collision.GetComponent<BoxCollider2D>().isTrigger) {
+                if (!grounded)
+                {
+                    GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(groundSound);
+                }
                 grounded = true;
                 nbJumps = baseNbJumps;
+                
             }
         }
     }
