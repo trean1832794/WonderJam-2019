@@ -1290,7 +1290,7 @@ MonoBehaviour:
   rightPlatforms: {fileID: 1421943476127537551, guid: cd922b8afab4a844e8fb6d495414a333,
     type: 3}
   growthThreshold: 1
-  eventThreshold: 15
+  eventThreshold: 1
   mininumPowerUpChance: 20
   minimumDistance: 0.7
   playerOnePrefab: {fileID: 974354355499722440, guid: 8b1dd74c765d3e34a8a466b2e2206c7b,
@@ -3904,7 +3904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTime: 0
   hazardTime: 5
-  nbEvents: 3
+  nbEvents: 4
   danger1: {fileID: 1437256744}
   danger2: {fileID: 317233850}
   teleportObject: {fileID: 6080092211111641926, guid: a7a594a85eb381f43b697e0ad9db98d6,
