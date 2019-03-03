@@ -8,6 +8,10 @@ public class SceneChange : MonoBehaviour {
     [SerializeField]
     GameObject deathScreen;
 
+    void Start()
+    {
+       
+    }
     public void quitApp() {
         Application.Quit();
     }
