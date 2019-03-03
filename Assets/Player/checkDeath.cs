@@ -2,8 +2,8 @@
 
 public class checkDeath : MonoBehaviour {
     float endScreenTimer = 0;
-    bool activateTimer = false;
-    bool won = false;
+    public bool activateTimer = false;
+    public bool won = false;
     public GameObject winnerText;
 
     public AudioClip deathSound;
