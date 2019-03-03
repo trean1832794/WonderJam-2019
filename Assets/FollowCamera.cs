@@ -7,7 +7,11 @@ public class FollowCamera : MonoBehaviour
     public float baseOffsetY;
     void Start()
     {
-        baseOffsetY = transform.position.y;
+        baseOffsetY = transform.position.y - GameObject.Find("Main Camera").transform.position.y;
+        if(name.Equals("Geyzer(Clone)"))
+        {
+            Debug.Log(baseOffsetY);
+        }
     }
 
     // Update is called once per frame
