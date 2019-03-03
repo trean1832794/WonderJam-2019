@@ -28,11 +28,11 @@ public class Pillars : MonoBehaviour
     {
         if(transform.position.y - GameObject.FindGameObjectWithTag("MainCamera").transform.position.y < -spawnThreshold && pillarSpawned == false)
         {
-            Instantiate(gameObject, new Vector3(transform.position.x, transform.position.y + gameObject.GetComponent<SpriteRenderer>().size.y / 2f, transform.position.z), Quaternion.identity);
+            Instantiate(gameObject, new Vector3(transform.position.x, transform.position.y + gameObject.GetComponent<SpriteRenderer>().size.y, transform.position.z), Quaternion.identity);
             pillarSpawned = true;
         }
 
-        if(transform.position.y - GameObject.FindGameObjectWithTag("MainCamera").transform.position.y < -10)
+        if(transform.position.y - GameObject.FindGameObjectWithTag("MainCamera").transform.position.y < -20)
         {
             Destroy(gameObject);
         }

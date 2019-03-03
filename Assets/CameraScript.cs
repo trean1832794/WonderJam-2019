@@ -27,6 +27,7 @@ public class CameraScript : MonoBehaviour
     private float startX;
     public GameObject playerOnePrefab;
     public GameObject playerTwoPrefab;
+    public GameObject torch;
 
     public AudioClip menuTheme;
     public AudioClip gameTheme;
@@ -247,6 +248,21 @@ public class CameraScript : MonoBehaviour
         lastPlatformSidedRight--;
         lastHeigthSpawned += 3f;
 
+        //spawn torches with a 35% chance
+
+        if (Random.Range(0.0f, 1.01f) <= 0.20f)
+        {
+
+            Instantiate(torch, new Vector3(Random.Range(-7.7f, -1.2f), lastHeigthSpawned + 3), Quaternion.identity);
+
+        }
+
+        if (Random.Range(0.0f, 1.01f) <= 0.20f)
+        {
+
+            Instantiate(torch, new Vector3(Random.Range(7.7f, 1.2f), lastHeigthSpawned + 3), Quaternion.identity);
+
+        }
 
     }
 
