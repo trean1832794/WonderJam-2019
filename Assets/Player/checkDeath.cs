@@ -35,7 +35,6 @@ public class checkDeath : MonoBehaviour {
 
                 //victory
                 if (!won) {
-                    Debug.Log("Victoire!!!");
                     GameObject.Find("Main Camera").GetComponent<CameraScript>().EndGame(winnerNbr);
                     won = true;
 
