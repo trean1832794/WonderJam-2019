@@ -83,7 +83,7 @@ public class DefaultMovement : MonoBehaviour {
             }
 
             //set variables for animation
-            animator.SetFloat("xAxis", xAxis);
+            animator.SetFloat("xAxis", xAxis);  
 
             //set velocity for horizontal movemen
 

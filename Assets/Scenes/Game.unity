@@ -2406,7 +2406,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 452917296}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -4054,7 +4054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTime: 0
   hazardTime: 5
-  nbEvents: 3
+  nbEvents: 4
   danger1: {fileID: 1437256744}
   danger2: {fileID: 317233850}
   teleportObject: {fileID: 6080092211111641926, guid: a7a594a85eb381f43b697e0ad9db98d6,
