@@ -9,6 +9,12 @@ public class WaterWalk : MonoBehaviour
 
         //make player immune to wet debuff
         playerConcerned.GetComponent<Debuffs>().wetImmunity = true;
+        if (playerConcerned.GetComponent<Debuffs>().wet)
+        {
+
+            playerConcerned.GetComponent<Debuffs>().endWet();
+
+        }
 
     }
 
