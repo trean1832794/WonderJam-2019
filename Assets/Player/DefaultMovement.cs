@@ -119,13 +119,6 @@ public class DefaultMovement : MonoBehaviour {
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag.Equals("Bounds")) {
-            grounded = true;
-            nbJumps = baseNbJumps;
-        }
-    }
-
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.tag.Equals("Platform")) {
             if (!collision.GetComponent<BoxCollider2D>().isTrigger) {
