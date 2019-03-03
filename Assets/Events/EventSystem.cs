@@ -6,7 +6,7 @@ public class EventSystem : MonoBehaviour
 {
 
     //public float timeBetweenEvents;
-    public float timeBeforeEvent;
+    public float currentTime;
     public float hazardTime;
     public int nbEvents;
     public GameObject danger1;
@@ -21,8 +21,7 @@ public class EventSystem : MonoBehaviour
     void Start()
     {
 
-       // timeBetweenEvents += hazardTime;
-       // timeBeforeEvent = timeBetweenEvents;
+        currentTime = hazardTime;
 
 
     }
@@ -32,44 +31,34 @@ public class EventSystem : MonoBehaviour
     {
         if (eventStarted)
         {
-            if (timeBeforeEvent <= hazardTime)
+
+            if (currentTime <= 0)
             {
 
-                //activate hazards
-                danger1.GetComponent<SpriteRenderer>().enabled = true;
-                danger2.GetComponent<SpriteRenderer>().enabled = true;
-                if (timeBeforeEvent <= 0)
-                {
-
-                    //activate event
-                    StartEvent();
-                    // timeBeforeEvent = timeBetweenEvents;
-                    danger1.GetComponent<SpriteRenderer>().enabled = false;
-                    danger2.GetComponent<SpriteRenderer>().enabled = false;
-                    eventStarted = false;
-
-                }
-                else
-                {
-
-                    timeBeforeEvent -= Time.deltaTime;
-
-                }
+                StartEvent();
+                eventStarted = false;
+                danger1.GetComponent<SpriteRenderer>().enabled = false;
+                danger2.GetComponent<SpriteRenderer>().enabled = false;
+                currentTime = hazardTime;
 
 
-            }
-            else
+            } else
             {
 
-                timeBeforeEvent -= Time.deltaTime;
+                currentTime -= Time.deltaTime;
 
             }
+
         }
 
     }
     public void StartEventTimer()
     {
         eventStarted = true;
+
+        danger1.GetComponent<SpriteRenderer>().enabled = true;
+        danger2.GetComponent<SpriteRenderer>().enabled = true;
+
     }
     public void StartEvent ()
     {
@@ -79,6 +68,9 @@ public class EventSystem : MonoBehaviour
         {
 
             case 1:
+
+                Debug.Log("Player Swap!");
+
                 //player swap
                 if (GameObject.Find("Player1") != null && GameObject.Find("Player2") != null) {
                 GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(teleportSound);
@@ -94,6 +86,7 @@ public class EventSystem : MonoBehaviour
             break;
             case 3:
 
+                //camera spin
 
 
             break;
